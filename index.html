@@ -2,2099 +2,2011 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#080D18">
-  <meta name="description" content="Mohamed Ebeid — Web & Mobile App Developer. Websites, Flutter applications, Blogger templates and digital solutions.">
-  <title>Mohamed Ebeid | Web & Mobile Developer</title>
-
-  <link rel="icon" href="https://github.com/mohamed-ebeid-dev.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --bg: #080d18;
-      --bg2: #0d1524;
-      --card: #111d30;
-      --text: #f4f7ff;
-      --muted: #95a5bc;
-      --blue: #398aff;
-      --cyan: #4ad6f5;
-      --border: rgba(166,197,244,.12);
-      --gradient: linear-gradient(120deg,#398aff,#4ad6f5);
-      color-scheme: dark;
-    }
-
-    * { box-sizing: border-box; }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 100px;
-    }
-
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Cairo',sans-serif;
-      line-height: 1.8;
-      overflow-x: hidden;
-    }
-
-    html[lang="en"] body {
-      font-family: 'Inter',sans-serif;
-      line-height: 1.65;
-    }
-
-    a { color: inherit; text-decoration: none; }
-    button, input, select, textarea { font: inherit; }
-    button { cursor: pointer; }
-    img { max-width: 100%; display: block; }
-    [hidden] { display: none !important; }
-    ::selection { background: #3588ff; color: white; }
-
-    .container {
-      width: min(1160px,calc(100% - 40px));
-      margin-inline: auto;
-    }
-
-    body::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      inset-inline-start: -260px;
-      width: 650px;
-      height: 650px;
-      background: radial-gradient(circle,rgba(39,109,237,.14),transparent 68%);
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    /* Header */
-    .header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(8,13,24,.87);
-      border-bottom: 1px solid var(--border);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-    }
-
-    .header-inner {
-      min-height: 76px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 24px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      direction: ltr;
-      flex-shrink: 0;
-    }
-
-    .brand-mark {
-      width: 43px;
-      height: 43px;
-      display: grid;
-      place-items: center;
-      border-radius: 13px;
-      background: var(--gradient);
-      color: #06111f;
-      font-family: 'Inter',sans-serif;
-      font-weight: 900;
-      letter-spacing: -2px;
-      font-size: 19px;
-    }
-
-    .brand-name {
-      font-family: 'Inter',sans-serif;
-      font-size: 17px;
-      font-weight: 800;
-      letter-spacing: -.6px;
-      line-height: 1.1;
-    }
-
-    .brand-name small {
-      display: block;
-      margin-top: 6px;
-      color: var(--muted);
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 1.7px;
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      gap: 26px;
-    }
-
-    .nav a {
-      color: #b2bfd1;
-      font-size: 12px;
-      font-weight: 700;
-      transition: color .2s;
-    }
-
-    .nav a:hover { color: var(--cyan); }
-
-    .header-actions {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-
-    .lang-btn,.menu-btn {
-      min-height: 39px;
-      padding: 0 14px;
-      background: #142137;
-      color: white;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      font-size: 12px;
-      font-weight: 700;
-    }
-
-    .lang-btn:hover,.menu-btn:hover {
-      border-color: var(--blue);
-    }
-
-    .menu-btn { display: none; }
-
-    /* General */
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      font-size: 12px;
-      color: var(--cyan);
-      font-weight: 800;
-      letter-spacing: .4px;
-    }
-
-    .eyebrow::before {
-      content: "";
-      width: 20px;
-      height: 2px;
-      background: var(--cyan);
-      border-radius: 2px;
-    }
-
-    .section { padding: 100px 0; }
-
-    .section-head {
-      margin-bottom: 37px;
-      max-width: 690px;
-    }
-
-    .section-head h2 {
-      font-size: clamp(27px,3.3vw,42px);
-      line-height: 1.4;
-      margin: 13px 0 12px;
-      letter-spacing: -.8px;
-    }
-
-    .section-head p {
-      color: var(--muted);
-      margin: 0;
-      font-size: 14px;
-    }
-
-    .accent {
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      min-height: 49px;
-      padding: 0 22px;
-      border-radius: 12px;
-      font-size: 13px;
-      font-weight: 800;
-      border: 1px solid transparent;
-      transition: transform .2s,background .2s,border-color .2s;
-      text-align: center;
-    }
-
-    .btn:hover { transform: translateY(-3px); }
-
-    .btn-primary {
-      background: var(--gradient);
-      color: #06111f;
-    }
-
-    .btn-secondary {
-      color: white;
-      background: #152238;
-      border-color: var(--border);
-    }
-
-    .btn-secondary:hover { border-color: var(--blue); }
-
-    .card {
-      border: 1px solid var(--border);
-      background: linear-gradient(150deg,#111c2d,#0c1422);
-      border-radius: 20px;
-    }
-
-    /* Hero */
-    .hero {
-      padding: 115px 0 85px;
-      position: relative;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap: 75px;
-      align-items: center;
-    }
-
-    .availability {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      border: 1px solid rgba(85,205,154,.19);
-      background: rgba(30,137,107,.1);
-      border-radius: 30px;
-      color: #7ee4b4;
-      padding: 6px 13px;
-      font-size: 11px;
-      font-weight: 800;
-    }
-
-    .availability::before {
-      content: "";
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #48dd97;
-      box-shadow: 0 0 13px #48dd97;
-    }
-
-    .hero h1 {
-      font-size: clamp(43px,5.8vw,77px);
-      line-height: 1.17;
-      letter-spacing: -2.5px;
-      margin: 22px 0 16px;
-      font-family: 'Inter','Cairo',sans-serif;
-      font-weight: 900;
-      direction: ltr;
-      text-align: start;
-    }
-
-    html[lang="ar"] .hero h1 { text-align: right; }
-
-    .hero h2 {
-      font-size: clamp(20px,2.6vw,31px);
-      font-weight: 800;
-      line-height: 1.5;
-      margin: 0 0 18px;
-    }
-
-    .hero-description {
-      color: var(--muted);
-      max-width: 550px;
-      font-size: 15px;
-      margin: 0;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 28px;
-    }
-
-    .hero-tags {
-      margin-top: 35px;
-      display: flex;
-      gap: 9px;
-      flex-wrap: wrap;
-    }
-
-    .hero-tags span,.tech-tags span {
-      padding: 6px 12px;
-      background: #152237;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      color: #adbed5;
-      font-family: 'Inter','Cairo',sans-serif;
-      font-size: 11px;
-      font-weight: 600;
-    }
-
-    .portrait-area {
-      position: relative;
-      display: flex;
-      justify-content: center;
-    }
-
-    .portrait-area::before {
-      content: "";
-      position: absolute;
-      inset: -15%;
-      background: radial-gradient(circle,rgba(39,131,255,.18),transparent 65%);
-      filter: blur(20px);
-      z-index: -1;
-    }
-
-    .portrait-card {
-      width: min(380px,100%);
-      aspect-ratio: .92;
-      border-radius: 26px;
-      padding: 24px;
-      background: linear-gradient(145deg,#172b4c,#0b1527 70%);
-      border: 1px solid rgba(123,179,255,.22);
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 30px 95px rgba(0,0,0,.25);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 26px;
-    }
-
-    .portrait-card::after {
-      content: "";
-      width: 280px;
-      height: 280px;
-      position: absolute;
-      inset-inline-end: -150px;
-      top: -160px;
-      border: 1px solid rgba(90,163,255,.27);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    .portrait-card img {
-      width: 205px;
-      height: 205px;
-      border-radius: 50%;
-      border: 4px solid rgba(84,162,255,.3);
-      box-shadow: 0 0 45px rgba(27,135,255,.16);
-      object-fit: cover;
-    }
-
-    .portrait-caption {
-      text-align: center;
-      direction: ltr;
-    }
-
-    .portrait-caption strong {
-      display: block;
-      font-family: 'Inter',sans-serif;
-      font-size: 21px;
-      letter-spacing: -.6px;
-    }
-
-    .portrait-caption span {
-      color: var(--cyan);
-      font: 500 12px 'Inter',sans-serif;
-    }
-
-    .float-chip {
-      position: absolute;
-      bottom: 20px;
-      inset-inline-start: -18px;
-      background: #182943;
-      border: 1px solid rgba(84,162,255,.24);
-      border-radius: 13px;
-      padding: 11px 15px;
-      box-shadow: 0 15px 40px #0005;
-      font: 700 11px 'Inter',sans-serif;
-      color: #c8e3ff;
-    }
-
-    /* Intro */
-    .intro-strip {
-      border-block: 1px solid var(--border);
-      background: #0c1422;
-    }
-
-    .intro-inner {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      justify-content: space-between;
-      align-items: center;
-      padding-block: 25px;
-    }
-
-    .intro-inner p {
-      margin: 0;
-      font-size: 13px;
-      color: var(--muted);
-    }
-
-    .intro-inner strong { color: var(--text); }
-
-    .intro-inner a {
-      color: var(--cyan);
-      font-weight: 800;
-      font-size: 12px;
-    }
-
-    /* Services */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(4,1fr);
-      gap: 16px;
-    }
-
-    .service {
-      padding: 28px 22px;
-      transition: .25s;
-    }
-
-    .service:hover {
-      transform: translateY(-6px);
-      border-color: rgba(72,152,255,.4);
-    }
-
-    .service-icon {
-      width: 52px;
-      height: 52px;
-      border: 1px solid rgba(58,143,255,.25);
-      display: grid;
-      place-items: center;
-      background: #172b49;
-      border-radius: 15px;
-      font-size: 23px;
-      margin-bottom: 26px;
-    }
-
-    .service h3 {
-      margin: 0 0 10px;
-      font-size: 16px;
-    }
-
-    .service p {
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 2;
-      margin: 0;
-    }
-
-    /* Projects */
-    .projects-section {
-      background: #0b1220;
-      border-block: 1px solid var(--border);
-    }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(3,1fr);
-      gap: 18px;
-    }
-
-    .project {
-      overflow: hidden;
-      transition: .25s;
-    }
-
-    .project:hover {
-      transform: translateY(-5px);
-      border-color: rgba(82,154,249,.4);
-    }
-
-    .project-visual {
-      min-height: 210px;
-      padding: 19px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .visual-jobs {
-      background: linear-gradient(135deg,#0d347b,#075add);
-    }
-
-    .visual-app {
-      background: linear-gradient(145deg,#132f65,#183e99,#04152e);
-    }
-
-    .visual-blogger {
-      background: linear-gradient(140deg,#122d49,#0a1628);
-    }
-
-    .mock-window {
-      width: 100%;
-      height: 172px;
-      border-radius: 11px;
-      background: #f6f8fd;
-      box-shadow: 0 16px 50px #0004;
-      overflow: hidden;
-      transform: rotate(-3deg) translateY(13px);
-      direction: rtl;
-    }
-
-    .mock-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 14px;
-      background: white;
-      color: #0c4cb5;
-      font-weight: 900;
-      font-size: 14px;
-    }
-
-    .mock-dots { display: flex; gap: 4px; }
-
-    .mock-dots i {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #ccd6e5;
-    }
-
-    .mock-hero {
-      background: #e5efff;
-      margin: 13px;
-      padding: 12px;
-      border-radius: 8px;
-    }
-
-    .mock-hero div {
-      height: 8px;
-      background: #1860d4;
-      border-radius: 10px;
-      margin-bottom: 8px;
-      width: 66%;
-    }
-
-    .mock-hero div + div {
-      background: #a3bfeb;
-      width: 45%;
-      height: 6px;
-    }
-
-    .mock-list {
-      display: flex;
-      gap: 8px;
-      margin: 0 13px;
-    }
-
-    .mock-list span {
-      height: 47px;
-      flex: 1;
-      border-radius: 7px;
-      background: white;
-      border: 1px solid #e0e6ef;
-    }
-
-    .phone-mock {
-      width: 122px;
-      height: 200px;
-      border: 6px solid #071329;
-      border-radius: 21px;
-      background: #f4f7fc;
-      margin: 8px auto -22px;
-      box-shadow: 15px 12px 0 rgba(80,139,244,.21),0 20px 50px #0005;
-      padding: 12px 8px;
-    }
-
-    .phone-bar {
-      height: 26px;
-      border-radius: 7px;
-      background: #1157c8;
-      margin-bottom: 12px;
-    }
-
-    .phone-search {
-      height: 13px;
-      border-radius: 6px;
-      background: #d5e2f4;
-      margin-bottom: 9px;
-    }
-
-    .phone-item {
-      height: 30px;
-      margin: 7px 0;
-      border-radius: 6px;
-      background: white;
-      border: 1px solid #e0e8f3;
-    }
-
-    /* OB Blogger Pro visual */
-    .blogger-mock {
-      width: 100%;
-      height: 172px;
-      margin-top: 7px;
-      border-radius: 11px;
-      overflow: hidden;
-      background: #f4f7fc;
-      box-shadow: 0 17px 45px #0005;
-      transform: rotate(3deg) translateY(8px);
-      direction: rtl;
-    }
-
-    .blogger-top {
-      height: 43px;
-      background: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 12px;
-      border-bottom: 1px solid #e1e6ef;
-    }
-
-    .blogger-logo {
-      font: 900 17px 'Inter',sans-serif;
-      color: #114daf;
-      letter-spacing: -1px;
-    }
-
-    .blogger-logo b { color: #f5a623; }
-
-    .blogger-menu {
-      display: flex;
-      gap: 5px;
-    }
-
-    .blogger-menu span {
-      display: block;
-      width: 22px;
-      height: 5px;
-      background: #bdcce3;
-      border-radius: 3px;
-    }
-
-    .blogger-featured {
-      padding: 11px;
-      display: grid;
-      grid-template-columns: 1.3fr 1fr;
-      gap: 7px;
-      height: 125px;
-    }
-
-    .blogger-big {
-      background: linear-gradient(140deg,#0d66c9,#0a2450);
-      border-radius: 7px;
-      display: flex;
-      flex-direction: column;
-      justify-content: end;
-      padding: 10px;
-      gap: 5px;
-    }
-
-    .blogger-big span {
-      height: 6px;
-      background: rgba(255,255,255,.8);
-      border-radius: 4px;
-      width: 85%;
-    }
-
-    .blogger-big span:last-child {
-      width: 55%;
-      opacity: .55;
-    }
-
-    .blogger-small {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6px;
-    }
-
-    .blogger-small span {
-      background: linear-gradient(145deg,#d6e5fa,#a9c6ec);
-      border-radius: 6px;
-    }
-
-    .blogger-small span:nth-child(2) {
-      background: linear-gradient(145deg,#fce4b5,#dba958);
-    }
-
-    .blogger-small span:nth-child(3) {
-      background: linear-gradient(145deg,#95baf0,#3271c4);
-    }
-
-    .blogger-small span:nth-child(4) {
-      background: linear-gradient(145deg,#d3e6eb,#73a8bd);
-    }
-
-    .project-info { padding: 22px; }
-
-    .project-type {
-      color: var(--cyan);
-      font: 700 11px 'Inter','Cairo',sans-serif;
-    }
-
-    .project-info h3 {
-      margin: 8px 0;
-      font-size: 19px;
-    }
-
-    .project-info p {
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 2;
-      min-height: 70px;
-    }
-
-    .tech-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin: 16px 0 20px;
-    }
-
-    .project-link {
-      display: inline-flex;
-      gap: 8px;
-      align-items: center;
-      color: #88c6ff;
-      font-size: 12px;
-      font-weight: 800;
-    }
-
-    .project-status {
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--muted);
-    }
-
-    /* About */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 65px;
-      align-items: center;
-    }
-
-    .about-text {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 2.2;
-    }
-
-    .skills-panel { padding: 30px; }
-
-    .skills-panel h3 {
-      font-size: 19px;
-      margin: 0 0 23px;
-    }
-
-    .skill-item {
-      display: flex;
-      justify-content: space-between;
-      gap: 15px;
-      padding: 14px 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 13px;
-    }
-
-    .skill-item:last-child { border-bottom: 0; }
-
-    .skill-item span:last-child {
-      color: var(--cyan);
-      font-family: 'Inter',sans-serif;
-      font-size: 11px;
-    }
-
-    /* Process */
-    .process-grid {
-      display: grid;
-      grid-template-columns: repeat(3,1fr);
-      gap: 16px;
-    }
-
-    .process-card { padding: 26px; }
-
-    .process-number {
-      color: var(--cyan);
-      font: 900 33px 'Inter',sans-serif;
-    }
-
-    .process-card h3 {
-      margin: 15px 0 8px;
-      font-size: 16px;
-    }
-
-    .process-card p {
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 2;
-      margin: 0;
-    }
-
-    /* Contact */
-    .contact-section { padding: 50px 0 95px; }
-
-    .contact-box {
-      background:
-        radial-gradient(circle at 10% 20%,rgba(47,117,231,.15),transparent 40%),
-        linear-gradient(135deg,#11213d,#0d182b);
-      border: 1px solid rgba(85,155,249,.23);
-      border-radius: 26px;
-      padding: 62px 40px;
-      text-align: center;
-    }
-
-    .contact-box h2 {
-      margin: 16px 0 12px;
-      font-size: clamp(26px,4vw,42px);
-    }
-
-    .contact-box > p {
-      color: var(--muted);
-      max-width: 570px;
-      margin: 0 auto 25px;
-      font-size: 14px;
-    }
-
-    .contact-actions {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .contact-note {
-      display: block;
-      color: var(--muted);
-      margin-top: 22px;
-      font-size: 11px;
-    }
-
-    /* Project request form */
-    .request-panel {
-      max-width: 790px;
-      margin: 42px auto 0;
-      background: rgba(5,12,25,.48);
-      border: 1px solid rgba(144,188,255,.15);
-      border-radius: 22px;
-      padding: 29px;
-      text-align: start;
-    }
-
-    .request-heading {
-      margin-bottom: 24px;
-    }
-
-    .request-heading h3 {
-      font-size: 21px;
-      margin: 0 0 6px;
-    }
-
-    .request-heading p {
-      font-size: 12px;
-      color: var(--muted);
-      margin: 0;
-    }
-
-    .request-grid {
-      display: grid;
-      grid-template-columns: repeat(2,minmax(0,1fr));
-      gap: 17px;
-    }
-
-    .form-field {
-      display: flex;
-      flex-direction: column;
-      gap: 7px;
-      min-width: 0;
-    }
-
-    .form-field.full {
-      grid-column: 1 / -1;
-    }
-
-    .form-field label {
-      font-size: 12px;
-      font-weight: 800;
-      color: #e3ebf8;
-    }
-
-    .form-field label .optional {
-      color: var(--muted);
-      font-weight: 500;
-    }
-
-    .field-input {
-      width: 100%;
-      min-width: 0;
-      min-height: 48px;
-      background: #101d31;
-      color: var(--text);
-      border: 1px solid rgba(142,182,241,.19);
-      border-radius: 11px;
-      outline: none;
-      padding: 11px 14px;
-      font-size: 13px;
-      transition: border-color .2s, box-shadow .2s;
-    }
-
-    .field-input:focus {
-      border-color: var(--blue);
-      box-shadow: 0 0 0 3px rgba(57,138,255,.11);
-    }
-
-    .field-input::placeholder {
-      color: #71829b;
-    }
-
-    textarea.field-input {
-      resize: vertical;
-      min-height: 124px;
-      line-height: 1.9;
-    }
-
-    select.field-input {
-      cursor: pointer;
-    }
-
-    .request-submit {
-      margin-top: 23px;
-      width: 100%;
-      border: none;
-    }
-
-    .form-privacy {
-      color: var(--muted);
-      font-size: 11px;
-      margin: 12px 0 0;
-      text-align: center;
-      line-height: 1.9;
-    }
-
-    /* Footer */
-    .footer {
-      border-top: 1px solid var(--border);
-      padding: 24px 0;
-    }
-
-    .footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .footer p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 11px;
-    }
-
-    .footer a {
-      color: var(--cyan);
-      font-size: 12px;
-      font-weight: 800;
-    }
-
-    /* Responsive */
-    @media(max-width:1050px) {
-      .nav { gap: 15px; }
-      .hero-grid { gap: 25px; }
-      .services-grid { grid-template-columns: repeat(2,1fr); }
-    }
-
-    @media(max-width:760px) {
-      .container { width: min(100% - 32px,550px); }
-      .header-inner { min-height: 67px; }
-      .brand-name { font-size: 15px; }
-      .menu-btn { display: block; }
-
-      .nav {
-        display: none;
-        position: absolute;
-        top: 67px;
-        inset-inline: 0;
-        padding: 20px;
-        background: #0e1727;
-        border-bottom: 1px solid var(--border);
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0;
-      }
-
-      .nav.open { display: flex; }
-      .nav a { display: block; padding: 11px; font-size: 13px; }
-
-      .hero { padding: 70px 0 60px; }
-
-      .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 48px;
-      }
-
-      .hero h1 { font-size: clamp(42px,10vw,62px); }
-
-      .portrait-card {
-        max-width: 330px;
-        aspect-ratio: 1;
-      }
-
-      .portrait-card img {
-        width: 160px;
-        height: 160px;
-      }
-
-      .float-chip { inset-inline-start: 0; }
-
-      .section { padding: 65px 0; }
-
-      .services-grid,
-      .projects-grid,
-      .process-grid,
-      .about-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .project-info p { min-height: 0; }
-      .about-grid { gap: 22px; }
-      .contact-section { padding: 30px 0 65px; }
-      .contact-box { padding: 43px 19px; }
-      .intro-inner { align-items: start; flex-direction: column; }
-      .request-panel { padding: 20px 16px; }
-      .request-grid { grid-template-columns: 1fr; }
-    }
-
-    @media(max-width:390px) {
-      .brand-name { font-size: 13px; }
-      .brand-mark { width: 38px; height: 38px; }
-      .lang-btn,.menu-btn { padding-inline: 10px; }
-      .hero-actions .btn { width: 100%; }
-      .services-grid { grid-template-columns: 1fr; }
-    }
-
-    @media(prefers-reduced-motion:reduce) {
-      html { scroll-behavior: auto; }
-
-      *,*::before,*::after {
-        transition: none !important;
-        animation: none !important;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080d18">
+<meta name="description" content="Mohamed Ebeid — Web & Mobile Developer. Websites, Flutter apps, Blogger templates and custom digital solutions.">
+<meta property="og:title" content="Mohamed Ebeid | Web & Mobile Developer">
+<meta property="og:description" content="Explore my work, projects and services.">
+<meta property="og:type" content="website">
+<title>Mohamed Ebeid | Web & Mobile Developer</title>
+<link rel="icon" href="https://github.com/mohamed-ebeid-dev.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg:#080d18;
+  --card:#111d30;
+  --text:#f4f7ff;
+  --muted:#95a5bc;
+  --blue:#398aff;
+  --cyan:#4ad6f5;
+  --line:rgba(166,197,244,.13);
+  --grad:linear-gradient(120deg,#398aff,#4ad6f5);
+  color-scheme:dark;
+}
+
+* {box-sizing:border-box}
+
+html {
+  scroll-behavior:smooth;
+  scroll-padding-top:90px;
+}
+
+body {
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Cairo,sans-serif;
+  line-height:1.85;
+  overflow-x:hidden;
+}
+
+html[lang=en] body {
+  font-family:Inter,sans-serif;
+  line-height:1.65;
+}
+
+a {color:inherit;text-decoration:none}
+button,input,select,textarea {font:inherit}
+button {cursor:pointer}
+img {max-width:100%;display:block}
+[hidden] {display:none!important}
+::selection {background:#3588ff;color:white}
+
+.container {
+  width:min(1160px,calc(100% - 40px));
+  margin-inline:auto;
+}
+
+body:before {
+  content:"";
+  position:absolute;
+  top:0;
+  inset-inline-start:-250px;
+  width:650px;
+  height:650px;
+  background:radial-gradient(circle,rgba(39,109,237,.14),transparent 68%);
+  pointer-events:none;
+  z-index:-1;
+}
+
+/* Header */
+.header {
+  position:sticky;
+  top:0;
+  z-index:30;
+  background:rgba(8,13,24,.9);
+  border-bottom:1px solid var(--line);
+  backdrop-filter:blur(18px);
+}
+
+.header-inner {
+  min-height:76px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+}
+
+.brand {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  direction:ltr;
+  flex-shrink:0;
+}
+
+.brand-mark {
+  width:43px;
+  height:43px;
+  display:grid;
+  place-items:center;
+  border-radius:13px;
+  background:var(--grad);
+  color:#06111f;
+  font:900 19px Inter,sans-serif;
+  letter-spacing:-2px;
+}
+
+.brand-name {
+  font:800 17px Inter,sans-serif;
+  letter-spacing:-.6px;
+  line-height:1.1;
+}
+
+.brand-name small {
+  display:block;
+  margin-top:6px;
+  color:var(--muted);
+  font:500 10px Inter,sans-serif;
+  letter-spacing:1.7px;
+}
+
+.nav {
+  display:flex;
+  align-items:center;
+  gap:22px;
+}
+
+.nav a {
+  color:#b2bfd1;
+  font-size:12px;
+  font-weight:700;
+  transition:color .2s;
+}
+
+.nav a:hover {color:var(--cyan)}
+
+.header-actions {
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.lang-btn,.menu-btn {
+  min-height:39px;
+  padding:0 14px;
+  background:#142137;
+  color:#fff;
+  border:1px solid var(--line);
+  border-radius:10px;
+  font-size:12px;
+  font-weight:800;
+}
+
+.menu-btn {display:none}
+
+/* General */
+.section {padding:100px 0}
+
+.eyebrow {
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  font-size:12px;
+  color:var(--cyan);
+  font-weight:800;
+}
+
+.eyebrow:before {
+  content:"";
+  width:20px;
+  height:2px;
+  background:var(--cyan);
+}
+
+.section-head {
+  max-width:710px;
+  margin-bottom:35px;
+}
+
+.section-head h2 {
+  font-size:clamp(27px,3.3vw,42px);
+  line-height:1.42;
+  margin:13px 0 12px;
+  letter-spacing:-.7px;
+}
+
+.section-head p {
+  color:var(--muted);
+  margin:0;
+  font-size:14px;
+}
+
+.accent {
+  background:var(--grad);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.btn {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  min-height:49px;
+  padding:0 22px;
+  border-radius:12px;
+  font-size:13px;
+  font-weight:800;
+  border:1px solid transparent;
+  transition:transform .2s,border-color .2s;
+  text-align:center;
+}
+
+.btn:hover {transform:translateY(-3px)}
+
+.btn-primary {
+  background:var(--grad);
+  color:#06111f;
+}
+
+.btn-secondary {
+  color:#fff;
+  background:#152238;
+  border-color:var(--line);
+}
+
+.btn-secondary:hover {border-color:var(--blue)}
+
+.card {
+  border:1px solid var(--line);
+  background:linear-gradient(150deg,#111c2d,#0c1422);
+  border-radius:20px;
+}
+
+/* Hero */
+.hero {padding:115px 0 85px}
+
+.hero-grid {
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:75px;
+  align-items:center;
+}
+
+.availability {
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  border:1px solid rgba(85,205,154,.19);
+  background:rgba(30,137,107,.1);
+  border-radius:30px;
+  color:#7ee4b4;
+  padding:6px 13px;
+  font-size:11px;
+  font-weight:800;
+}
+
+.availability:before {
+  content:"";
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:#48dd97;
+  box-shadow:0 0 13px #48dd97;
+}
+
+.hero h1 {
+  font:900 clamp(43px,5.8vw,77px)/1.17 Inter,Cairo,sans-serif;
+  letter-spacing:-2.5px;
+  margin:22px 0 16px;
+  direction:ltr;
+  text-align:start;
+}
+
+html[lang=ar] .hero h1 {text-align:right}
+
+.hero h2 {
+  font-size:clamp(20px,2.6vw,31px);
+  font-weight:800;
+  line-height:1.5;
+  margin:0 0 18px;
+}
+
+.hero-description {
+  color:var(--muted);
+  max-width:550px;
+  font-size:15px;
+  margin:0;
+}
+
+.hero-actions {
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:28px;
+}
+
+.hero-tags {
+  margin-top:35px;
+  display:flex;
+  gap:9px;
+  flex-wrap:wrap;
+}
+
+.hero-tags span,.tech-tags span {
+  padding:6px 12px;
+  background:#152237;
+  border:1px solid var(--line);
+  border-radius:8px;
+  color:#adbed5;
+  font:600 11px Inter,Cairo,sans-serif;
+}
+
+.portrait-area {
+  position:relative;
+  display:flex;
+  justify-content:center;
+}
+
+.portrait-area:before {
+  content:"";
+  position:absolute;
+  inset:-15%;
+  background:radial-gradient(circle,rgba(39,131,255,.18),transparent 65%);
+  filter:blur(20px);
+  z-index:-1;
+}
+
+.portrait-card {
+  width:min(380px,100%);
+  aspect-ratio:.92;
+  border-radius:26px;
+  padding:24px;
+  background:linear-gradient(145deg,#172b4c,#0b1527 70%);
+  border:1px solid rgba(123,179,255,.22);
+  position:relative;
+  overflow:hidden;
+  box-shadow:0 30px 95px #0004;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:26px;
+}
+
+.portrait-card:after {
+  content:"";
+  width:280px;
+  height:280px;
+  position:absolute;
+  inset-inline-end:-150px;
+  top:-160px;
+  border:1px solid rgba(90,163,255,.27);
+  border-radius:50%;
+  pointer-events:none;
+}
+
+.portrait-card img {
+  width:205px;
+  height:205px;
+  border-radius:50%;
+  border:4px solid rgba(84,162,255,.3);
+  box-shadow:0 0 45px rgba(27,135,255,.16);
+  object-fit:cover;
+}
+
+.portrait-caption {
+  text-align:center;
+  direction:ltr;
+}
+
+.portrait-caption strong {
+  display:block;
+  font:800 21px Inter,sans-serif;
+}
+
+.portrait-caption span {
+  color:var(--cyan);
+  font:500 12px Inter,sans-serif;
+}
+
+.float-chip {
+  position:absolute;
+  bottom:20px;
+  inset-inline-start:-18px;
+  background:#182943;
+  border:1px solid rgba(84,162,255,.24);
+  border-radius:13px;
+  padding:11px 15px;
+  box-shadow:0 15px 40px #0005;
+  font:700 11px Inter,sans-serif;
+  color:#c8e3ff;
+}
+
+.intro-strip {
+  border-block:1px solid var(--line);
+  background:#0c1422;
+}
+
+.intro-inner {
+  display:flex;
+  flex-wrap:wrap;
+  gap:15px;
+  justify-content:space-between;
+  align-items:center;
+  padding-block:25px;
+}
+
+.intro-inner p {
+  margin:0;
+  font-size:13px;
+  color:var(--muted);
+}
+
+.intro-inner strong {color:var(--text)}
+
+.intro-inner a {
+  color:var(--cyan);
+  font-size:12px;
+  font-weight:800;
+}
+
+/* Services */
+.services-grid {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+
+.service {
+  padding:28px 22px;
+  transition:.25s;
+}
+
+.service:hover,.project:hover {
+  transform:translateY(-5px);
+  border-color:rgba(72,152,255,.4);
+}
+
+.service-icon {
+  width:52px;
+  height:52px;
+  border:1px solid rgba(58,143,255,.25);
+  display:grid;
+  place-items:center;
+  background:#172b49;
+  border-radius:15px;
+  font-size:23px;
+  margin-bottom:26px;
+}
+
+.service h3 {
+  margin:0 0 10px;
+  font-size:16px;
+}
+
+.service p {
+  color:var(--muted);
+  font-size:12px;
+  line-height:2;
+  margin:0;
+}
+
+/* Projects */
+.projects-section {
+  background:#0b1220;
+  border-block:1px solid var(--line);
+}
+
+.projects-grid {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:18px;
+}
+
+.project {
+  overflow:hidden;
+  transition:.25s;
+}
+
+.project-media {
+  height:240px;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  border-bottom:1px solid var(--line);
+}
+
+.media-web {background:linear-gradient(140deg,#0d347b,#075add)}
+.media-app {background:linear-gradient(145deg,#132f65,#183e99,#04152e)}
+.media-blogger {background:linear-gradient(140deg,#122d49,#0a1628)}
+
+.desktop-shot {
+  width:91%;
+  height:178px;
+  object-fit:cover;
+  object-position:top;
+  border-radius:10px;
+  border:5px solid #0a182f;
+  box-shadow:0 18px 36px #0006;
+  transform:rotate(-3deg);
+}
+
+.phone-overlay {
+  position:absolute;
+  inset-inline-end:4%;
+  bottom:-20px;
+  width:30%;
+  height:184px;
+  object-fit:cover;
+  object-position:top;
+  border:5px solid #071427;
+  border-radius:17px;
+  box-shadow:0 15px 28px #0009;
+  transform:rotate(7deg);
+}
+
+.app-phone {
+  width:35%;
+  height:205px;
+  border:5px solid #071427;
+  border-radius:20px;
+  object-fit:cover;
+  object-position:top;
+  box-shadow:0 19px 32px #0007;
+}
+
+.app-phone.first {
+  transform:rotate(-8deg) translateX(-4px);
+  z-index:2;
+}
+
+.app-phone.second {
+  transform:rotate(8deg) translateX(4px);
+  margin-inline-start:-20px;
+}
+
+.media-label {
+  position:absolute;
+  bottom:12px;
+  inset-inline-start:13px;
+  z-index:3;
+  padding:4px 10px;
+  background:#09172ac9;
+  color:#d0e6ff;
+  border:1px solid #ffffff24;
+  border-radius:20px;
+  font:700 10px Inter,sans-serif;
+}
+
+.project-info {padding:23px}
+
+.project-type {
+  color:var(--cyan);
+  font:700 10px Inter,sans-serif;
+  letter-spacing:.1px;
+}
+
+.project-info h3 {
+  margin:8px 0;
+  font-size:19px;
+}
+
+.project-info p {
+  color:var(--muted);
+  font-size:12px;
+  line-height:2;
+  min-height:75px;
+}
+
+.tech-tags {
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin:16px 0 20px;
+}
+
+.project-actions {
+  display:flex;
+  gap:15px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+
+.project-link {
+  display:inline-flex;
+  gap:6px;
+  align-items:center;
+  color:#88c6ff;
+  font-size:12px;
+  font-weight:800;
+  background:none;
+  border:0;
+  padding:0;
+}
+
+.project-link:hover {text-decoration:underline}
+
+.project-status {
+  font-size:11px;
+  font-weight:700;
+  color:var(--muted);
+}
+
+/* About */
+.about-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:65px;
+  align-items:center;
+}
+
+.about-text {
+  color:var(--muted);
+  font-size:14px;
+  line-height:2.2;
+}
+
+.skills-panel {padding:30px}
+
+.skills-panel h3 {
+  font-size:19px;
+  margin:0 0 23px;
+}
+
+.skill-item {
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  padding:14px 0;
+  border-bottom:1px solid var(--line);
+  font-size:13px;
+}
+
+.skill-item:last-child {border-bottom:0}
+
+.skill-item span:last-child {
+  color:var(--cyan);
+  font:600 11px Inter,sans-serif;
+}
+
+/* Process */
+.process-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+
+.process-card {padding:26px}
+
+.process-number {
+  color:var(--cyan);
+  font:900 33px Inter,sans-serif;
+}
+
+.process-card h3 {
+  margin:15px 0 8px;
+  font-size:16px;
+}
+
+.process-card p {
+  color:var(--muted);
+  font-size:12px;
+  line-height:2;
+  margin:0;
+}
+
+/* Contact */
+.contact-section {padding:50px 0 95px}
+
+.contact-box {
+  background:
+    radial-gradient(circle at 10% 20%,rgba(47,117,231,.15),transparent 40%),
+    linear-gradient(135deg,#11213d,#0d182b);
+  border:1px solid rgba(85,155,249,.23);
+  border-radius:26px;
+  padding:62px 40px;
+  text-align:center;
+}
+
+.contact-box h2 {
+  margin:16px 0 12px;
+  font-size:clamp(26px,4vw,42px);
+}
+
+.contact-box > p {
+  color:var(--muted);
+  max-width:570px;
+  margin:0 auto 25px;
+  font-size:14px;
+}
+
+.contact-actions {
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+.request-panel {
+  max-width:790px;
+  margin:42px auto 0;
+  background:#050c197a;
+  border:1px solid rgba(144,188,255,.15);
+  border-radius:22px;
+  padding:29px;
+  text-align:start;
+}
+
+.request-heading {margin-bottom:24px}
+
+.request-heading h3 {
+  font-size:21px;
+  margin:0 0 6px;
+}
+
+.request-heading p {
+  font-size:12px;
+  color:var(--muted);
+  margin:0;
+}
+
+.request-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:17px;
+}
+
+.form-field {
+  display:flex;
+  flex-direction:column;
+  gap:7px;
+  min-width:0;
+}
+
+.form-field.full {grid-column:1/-1}
+
+.form-field label {
+  font-size:12px;
+  font-weight:800;
+  color:#e3ebf8;
+}
+
+.field-input {
+  width:100%;
+  min-width:0;
+  min-height:48px;
+  background:#101d31;
+  color:var(--text);
+  border:1px solid rgba(142,182,241,.19);
+  border-radius:11px;
+  outline:none;
+  padding:11px 14px;
+  font-size:13px;
+  transition:border-color .2s,box-shadow .2s;
+}
+
+.field-input:focus {
+  border-color:var(--blue);
+  box-shadow:0 0 0 3px #398aff1c;
+}
+
+.field-input::placeholder {color:#71829b}
+.field-input.is-invalid {border-color:#ff7c93}
+
+textarea.field-input {
+  resize:vertical;
+  min-height:124px;
+  line-height:1.9;
+}
+
+select.field-input {cursor:pointer}
+
+.field-error {
+  color:#ff99a9;
+  font-size:11px;
+  min-height:0;
+  line-height:1.5;
+}
+
+.field-error:empty {display:none}
+
+.request-submit {
+  margin-top:23px;
+  width:100%;
+  border:0;
+}
+
+.form-privacy {
+  color:var(--muted);
+  font-size:11px;
+  margin:12px 0 0;
+  text-align:center;
+  line-height:1.9;
+}
+
+/* Footer */
+.footer {
+  border-top:1px solid var(--line);
+  padding:24px 0;
+}
+
+.footer-inner {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.footer p {
+  margin:0;
+  color:var(--muted);
+  font-size:11px;
+}
+
+.footer a {
+  color:var(--cyan);
+  font-size:12px;
+  font-weight:800;
+}
+
+/* Gallery */
+.gallery-backdrop {
+  position:fixed;
+  inset:0;
+  z-index:100;
+  background:rgba(2,6,14,.93);
+  padding:22px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  backdrop-filter:blur(8px);
+}
+
+.gallery-dialog {
+  position:relative;
+  width:min(1040px,100%);
+  max-height:95vh;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  outline:none;
+}
+
+.gallery-header {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+}
+
+.gallery-header h2 {
+  margin:0;
+  font-size:18px;
+}
+
+.gallery-close,.gallery-arrow {
+  border:1px solid #ffffff36;
+  background:#17243a;
+  color:#fff;
+  border-radius:11px;
+  display:grid;
+  place-items:center;
+}
+
+.gallery-close {
+  width:44px;
+  height:44px;
+  flex-shrink:0;
+  font-size:25px;
+}
+
+.gallery-main {
+  position:relative;
+  min-height:0;
+  height:min(62vh,700px);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  border:1px solid #ffffff22;
+  border-radius:17px;
+  background:#091120;
+  padding:12px 50px;
+}
+
+.gallery-main img {
+  max-height:100%;
+  max-width:100%;
+  width:auto;
+  height:auto;
+  object-fit:contain;
+  border-radius:9px;
+}
+
+.gallery-arrow {
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:38px;
+  height:46px;
+  font-size:26px;
+  z-index:2;
+}
+
+.gallery-prev {inset-inline-start:7px}
+.gallery-next {inset-inline-end:7px}
+
+.gallery-caption {
+  text-align:center;
+  font-size:12px;
+  color:#c6d6ea;
+}
+
+.gallery-thumbs {
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  overflow:auto;
+  padding:2px 0 6px;
+}
+
+.gallery-thumb {
+  padding:2px;
+  width:64px;
+  height:62px;
+  flex-shrink:0;
+  overflow:hidden;
+  border-radius:8px;
+  border:2px solid transparent;
+  background:#152136;
+}
+
+.gallery-thumb.active {border-color:#4ad6f5}
+
+.gallery-thumb img {
+  height:100%;
+  width:100%;
+  object-fit:cover;
+  object-position:top;
+  border-radius:4px;
+}
+
+body.gallery-open {overflow:hidden}
+
+/* Responsive */
+@media(max-width:1050px) {
+  .nav {gap:15px}
+  .hero-grid {gap:25px}
+  .services-grid {grid-template-columns:repeat(2,1fr)}
+}
+
+@media(max-width:760px) {
+  .container {width:min(100% - 32px,550px)}
+  .header-inner {min-height:67px;gap:7px}
+  .brand {gap:7px}
+  .brand-name {font-size:13px}
+  .brand-name small {font-size:8px;letter-spacing:1px}
+  .header-actions {gap:5px}
+  .lang-btn,.menu-btn {padding-inline:9px}
+  .menu-btn {display:block}
+
+  .nav {
+    display:none;
+    position:absolute;
+    top:67px;
+    inset-inline:0;
+    padding:20px;
+    background:#0e1727;
+    border-bottom:1px solid var(--line);
+    flex-direction:column;
+    align-items:stretch;
+    gap:0;
+  }
+
+  .nav.open {display:flex}
+  .nav a {display:block;padding:11px;font-size:13px}
+
+  .hero {padding:70px 0 60px}
+  .hero-grid {grid-template-columns:1fr;gap:48px}
+
+  .hero h1 {
+    font-size:clamp(37px,9.5vw,59px);
+    letter-spacing:-2px;
+    overflow-wrap:anywhere;
+  }
+
+  .portrait-area {
+    overflow:clip;
+    min-width:0;
+    padding-bottom:8px;
+  }
+
+  .portrait-card {max-width:330px;aspect-ratio:1}
+  .portrait-card img {width:160px;height:160px}
+  .float-chip {inset-inline-start:0}
+  .section {padding:65px 0}
+
+  .services-grid,.projects-grid,
+  .process-grid,.about-grid {
+    grid-template-columns:1fr;
+  }
+
+  .project-info p {min-height:0}
+  .project-media {height:245px}
+  .desktop-shot {height:195px}
+  .phone-overlay {height:198px}
+  .about-grid {gap:22px}
+  .contact-section {padding:30px 0 65px}
+  .contact-box {padding:43px 19px}
+
+  .intro-inner {
+    align-items:start;
+    flex-direction:column;
+  }
+
+  .request-panel {padding:20px 16px}
+  .request-grid {grid-template-columns:1fr}
+  .gallery-backdrop {padding:12px}
+  .gallery-main {height:64vh;padding:10px 37px}
+  .gallery-header h2 {font-size:15px}
+  .gallery-arrow {width:30px;height:39px}
+}
+
+@media(max-width:390px) {
+  .brand-name {font-size:12px}
+  .brand-mark {width:35px;height:35px}
+  .lang-btn,.menu-btn {padding-inline:7px}
+  .hero-actions .btn {width:100%}
+}
+
+@media(prefers-reduced-motion:reduce) {
+  html {scroll-behavior:auto}
+  *,*:before,*:after {
+    transition:none!important;
+    animation:none!important;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- Header -->
-  <header class="header">
-    <div class="container header-inner">
-      <a href="#home" class="brand" aria-label="Mohamed Ebeid">
-        <span class="brand-mark">ME</span>
-        <span class="brand-name">
-          Mohamed Ebeid
-          <small>DEVELOPER PORTFOLIO</small>
-        </span>
-      </a>
+<header class="header">
+  <div class="container header-inner">
 
-      <nav class="nav" id="mainNav" aria-label="Main navigation">
-        <a href="#home" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
-        <a href="#services" data-ar="الخدمات" data-en="Services">الخدمات</a>
-        <a href="#projects" data-ar="أعمالي" data-en="Projects">أعمالي</a>
-        <a href="#about" data-ar="من أنا" data-en="About">من أنا</a>
-        <a href="#contact" data-ar="التواصل" data-en="Contact">التواصل</a>
-      </nav>
+    <a href="#home" class="brand" aria-label="Mohamed Ebeid">
+      <span class="brand-mark">ME</span>
+      <span class="brand-name">
+        Mohamed Ebeid
+        <small>DEVELOPER PORTFOLIO</small>
+      </span>
+    </a>
 
-      <div class="header-actions">
-        <button class="lang-btn" id="langToggle" type="button">English</button>
-        <button class="menu-btn" id="menuToggle" type="button"
-                aria-expanded="false" aria-controls="mainNav"
-                aria-label="القائمة">☰</button>
-      </div>
-    </div>
-  </header>
+    <nav class="nav" id="mainNav" aria-label="Main navigation">
+      <a href="#home" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
+      <a href="#services" data-ar="الخدمات" data-en="Services">الخدمات</a>
+      <a href="#projects" data-ar="أعمالي" data-en="Projects">أعمالي</a>
+      <a href="#about" data-ar="من أنا" data-en="About">من أنا</a>
+      <a href="#contact" data-ar="التواصل" data-en="Contact">التواصل</a>
+    </nav>
 
-  <main>
-
-    <!-- Hero -->
-    <section class="hero" id="home">
-      <div class="container hero-grid">
-        <div class="hero-content">
-          <span class="availability"
-                data-ar="متاح لمناقشة مشاريع جديدة"
-                data-en="Open to discussing new projects">
-            متاح لمناقشة مشاريع جديدة
-          </span>
-
-          <h1>Mohamed <span class="accent">Ebeid.</span></h1>
-
-          <h2>
-            <span data-ar="أحوّل الأفكار إلى"
-                  data-en="Turning ideas into">أحوّل الأفكار إلى</span>
-            <span class="accent"
-                  data-ar="تجارب رقمية مميزة."
-                  data-en="meaningful digital experiences.">
-              تجارب رقمية مميزة.
-            </span>
-          </h2>
-
-          <p class="hero-description"
-             data-ar="مطوّر مواقع وتطبيقات من مصر، أهتم ببناء واجهات حديثة وحلول رقمية عملية تجمع بين التصميم الجيد وسهولة الاستخدام. أعمل على تطوير مهاراتي ومشاريعي باستمرار."
-             data-en="A web and mobile app developer based in Egypt, focused on modern interfaces and practical digital solutions that combine thoughtful design with usability. Continuously improving my skills and projects.">
-            مطوّر مواقع وتطبيقات من مصر، أهتم ببناء واجهات حديثة وحلول رقمية عملية تجمع بين التصميم الجيد وسهولة الاستخدام. أعمل على تطوير مهاراتي ومشاريعي باستمرار.
-          </p>
-
-          <div class="hero-actions">
-            <a href="#projects" class="btn btn-primary">
-              <span data-ar="استكشف أعمالي"
-                    data-en="Explore my work">استكشف أعمالي</span>
-              <span>↗</span>
-            </a>
-            <a href="#contact" class="btn btn-secondary">
-              <span data-ar="تواصل معي"
-                    data-en="Get in touch">تواصل معي</span>
-            </a>
-          </div>
-
-          <div class="hero-tags">
-            <span>Flutter</span>
-            <span>Web Development</span>
-            <span>UI Design</span>
-            <span>Blogger Development</span>
-          </div>
-        </div>
-
-        <div class="portrait-area">
-          <div class="portrait-card">
-            <img src="https://github.com/mohamed-ebeid-dev.png?size=420"
-                 alt="Mohamed Ebeid personal brand"
-                 loading="eager">
-
-            <div class="portrait-caption">
-              <strong>Mohamed Ebeid</strong>
-              <span>Web & Mobile Developer</span>
-            </div>
-          </div>
-
-          <div class="float-chip">
-            &lt; / &gt; Building Digital Experiences
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Intro -->
-    <div class="intro-strip">
-      <div class="container intro-inner">
-        <p>
-          <strong data-ar="من الفكرة إلى التنفيذ"
-                  data-en="From idea to execution">
-            من الفكرة إلى التنفيذ
-          </strong>
-
-          <span data-ar=" — حلول رقمية مصممة وفق احتياجات كل مشروع."
-                data-en=" — Digital solutions shaped around each project's needs.">
-            — حلول رقمية مصممة وفق احتياجات كل مشروع.
-          </span>
-        </p>
-
-        <a href="#about"
-           data-ar="تعرف عليّ ←"
-           data-en="Learn about me ↗">
-          تعرف عليّ ←
-        </a>
-      </div>
+    <div class="header-actions">
+      <button class="lang-btn" id="langToggle" type="button">English</button>
+      <button class="menu-btn" id="menuToggle" type="button" aria-controls="mainNav" aria-expanded="false" aria-label="القائمة">☰</button>
     </div>
 
-    <!-- Services -->
-    <section class="section" id="services">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow"
-                data-ar="ماذا أقدم؟"
-                data-en="WHAT I DO">ماذا أقدم؟</span>
-
-          <h2>
-            <span data-ar="حلول تقنية"
-                  data-en="Digital solutions">حلول تقنية</span>
-
-            <span class="accent"
-                  data-ar=" تناسب فكرتك"
-                  data-en=" built around your idea">تناسب فكرتك</span>
-          </h2>
-
-          <p data-ar="أركز على تقديم أعمال واضحة وعملية، مع تحديد نطاق كل مشروع وفق متطلباته."
-             data-en="I focus on practical, well-defined work, with the scope of each project tailored to its requirements.">
-            أركز على تقديم أعمال واضحة وعملية، مع تحديد نطاق كل مشروع وفق متطلباته.
-          </p>
-        </div>
-
-        <div class="services-grid">
-
-          <article class="service card">
-            <div class="service-icon">◈</div>
-            <h3 data-ar="تطوير المواقع"
-                data-en="Web Development">تطوير المواقع</h3>
-
-            <p data-ar="تصميم وتطوير مواقع الشركات والمؤسسات والمواقع التعريفية وصفحات الهبوط، بتجربة متجاوبة وسهلة الاستخدام."
-               data-en="Business and organization websites, landing pages and responsive web experiences.">
-              تصميم وتطوير مواقع الشركات والمؤسسات والمواقع التعريفية وصفحات الهبوط، بتجربة متجاوبة وسهلة الاستخدام.
-            </p>
-          </article>
-
-          <article class="service card">
-            <div class="service-icon">▣</div>
-            <h3 data-ar="تطبيقات الموبايل"
-                data-en="Mobile Applications">تطبيقات الموبايل</h3>
-
-            <p data-ar="تصميم وتطوير تطبيقات Android باستخدام Flutter، وفق متطلبات واضحة ونطاق مناسب لكل مشروع."
-               data-en="Flutter-based Android applications developed around clearly defined project requirements.">
-              تصميم وتطوير تطبيقات Android باستخدام Flutter، وفق متطلبات واضحة ونطاق مناسب لكل مشروع.
-            </p>
-          </article>
-
-          <article class="service card">
-            <div class="service-icon">✦</div>
-            <h3 data-ar="تطوير قوالب بلوجر"
-                data-en="Blogger Templates">تطوير قوالب بلوجر</h3>
-
-            <p data-ar="تصميم وتخصيص قوالب بلوجر عربية احترافية، سريعة ومتجاوبة، مع تطوير واجهات وأقسام مخصصة."
-               data-en="Custom responsive Blogger themes, Arabic RTL layouts, modern interfaces and tailored features.">
-              تصميم وتخصيص قوالب بلوجر عربية احترافية، سريعة ومتجاوبة، مع تطوير واجهات وأقسام مخصصة.
-            </p>
-          </article>
-
-          <article class="service card">
-            <div class="service-icon">⌘</div>
-            <h3 data-ar="الحلول البرمجية المخصصة"
-                data-en="Custom Solutions">الحلول البرمجية المخصصة</h3>
-
-            <p data-ar="لوحات تحكم وأدوات لإدارة البيانات والطلبات وتبسيط المهام المتكررة وربط الأنظمة."
-               data-en="Dashboards and custom tools to manage data, organize requests and simplify workflows.">
-              لوحات تحكم وأدوات لإدارة البيانات والطلبات وتبسيط المهام المتكررة وربط الأنظمة.
-            </p>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- Projects -->
-    <section class="section projects-section" id="projects">
-      <div class="container">
-
-        <div class="section-head">
-          <span class="eyebrow"
-                data-ar="معرض الأعمال"
-                data-en="SELECTED WORK">معرض الأعمال</span>
-
-          <h2>
-            <span data-ar="مشاريع اشتغلت"
-                  data-en="Projects I've">مشاريع اشتغلت</span>
-
-            <span class="accent"
-                  data-ar=" عليها"
-                  data-en=" worked on">عليها</span>
-          </h2>
-
-          <p data-ar="نماذج من تجاربي العملية. بعض المشاريع منشور بالفعل، وبعضها ما زال قيد التطوير."
-             data-en="A selection of hands-on projects. Some are live, while others remain in development.">
-            نماذج من تجاربي العملية. بعض المشاريع منشور بالفعل، وبعضها ما زال قيد التطوير.
-          </p>
-        </div>
-
-        <div class="projects-grid">
-
-          <!-- Hanwazafak Website -->
-          <article class="project card">
-            <div class="project-visual visual-jobs">
-              <div class="mock-window">
-                <div class="mock-head">
-                  <b>هنوظفك</b>
-                  <div class="mock-dots">
-                    <i></i><i></i><i></i>
-                  </div>
-                </div>
-
-                <div class="mock-hero">
-                  <div></div><div></div>
-                </div>
-
-                <div class="mock-list">
-                  <span></span><span></span><span></span>
-                </div>
-              </div>
-            </div>
-
-            <div class="project-info">
-              <span class="project-type">WEB PLATFORM • LIVE</span>
-              <h3>Hanwazafak</h3>
-
-              <p data-ar="منصة عربية لنشر فرص العمل والتدريب، مع أقسام للوظائف وأدوات مساعدة للباحثين عن عمل."
-                 data-en="An Arabic employment platform featuring job opportunities, training resources and useful job-seeker tools.">
-                منصة عربية لنشر فرص العمل والتدريب، مع أقسام للوظائف وأدوات مساعدة للباحثين عن عمل.
-              </p>
-
-              <div class="tech-tags">
-                <span>Blogger</span>
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>JavaScript</span>
-              </div>
-
-              <a class="project-link"
-                 href="https://www.hanwazafak.com"
-                 target="_blank"
-                 rel="noopener noreferrer">
-                <span data-ar="زيارة المشروع"
-                      data-en="Visit live website">زيارة المشروع</span> ↗
-              </a>
-            </div>
-          </article>
-
-          <!-- Hanwazafak Application -->
-          <article class="project card">
-            <div class="project-visual visual-app">
-              <div class="phone-mock">
-                <div class="phone-bar"></div>
-                <div class="phone-search"></div>
-                <div class="phone-item"></div>
-                <div class="phone-item"></div>
-                <div class="phone-item"></div>
-              </div>
-            </div>
-
-            <div class="project-info">
-              <span class="project-type">
-                ANDROID APPLICATION • IN DEVELOPMENT
-              </span>
-
-              <h3>Hanwazafak App</h3>
-
-              <p data-ar="تطبيق Android لعرض فرص العمل والبحث والتصفح، مرتبط بلوحة تحكم لإدارة الوظائف والمحتوى."
-                 data-en="An Android job-discovery application with search, browsing and a content management backend.">
-                تطبيق Android لعرض فرص العمل والبحث والتصفح، مرتبط بلوحة تحكم لإدارة الوظائف والمحتوى.
-              </p>
-
-              <div class="tech-tags">
-                <span>Flutter</span>
-                <span>Dart</span>
-                <span>PHP</span>
-                <span>MySQL</span>
-              </div>
-
-              <span class="project-status"
-                    data-ar="قيد التطوير والاختبار"
-                    data-en="Development and testing">
-                قيد التطوير والاختبار
-              </span>
-            </div>
-          </article>
-
-          <!-- OB Blogger Pro -->
-          <article class="project card">
-            <div class="project-visual visual-blogger">
-
-              <div class="blogger-mock">
-                <div class="blogger-top">
-                  <div class="blogger-logo">
-                    OB <b>Blogger Pro</b>
-                  </div>
-
-                  <div class="blogger-menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </div>
-                </div>
-
-                <div class="blogger-featured">
-                  <div class="blogger-big">
-                    <span></span>
-                    <span></span>
-                  </div>
-
-                  <div class="blogger-small">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
-            <div class="project-info">
-              <span class="project-type">
-                BLOGGER TEMPLATE • AVAILABLE FOR SALE
-              </span>
-
-              <h3>OB Blogger Pro</h3>
-
-              <p data-ar="قالب بلوجر عربي متكامل من تطويري، بتصميم RTL متجاوب، وأقسام للمقالات المميزة والتصنيفات، وبحث متقدم وواجهات حديثة."
-                 data-en="An Arabic RTL Blogger theme I developed, featuring responsive layouts, featured articles, category sections, search enhancements and modern interfaces.">
-                قالب بلوجر عربي متكامل من تطويري، بتصميم RTL متجاوب، وأقسام للمقالات المميزة والتصنيفات، وبحث متقدم وواجهات حديثة.
-              </p>
-
-              <div class="tech-tags">
-                <span>Blogger XML</span>
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>JavaScript</span>
-                <span>RTL</span>
-              </div>
-
-              <a class="project-link"
-                 href="#contact"
-                 id="bloggerProjectLink">
-                <span data-ar="استفسر عن القالب"
-                      data-en="Ask about this template">
-                  استفسر عن القالب
-                </span> ↗
-              </a>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- About -->
-    <section class="section" id="about">
-      <div class="container about-grid">
-
-        <div>
-          <div class="section-head">
-            <span class="eyebrow"
-                  data-ar="نبذة عني"
-                  data-en="ABOUT ME">نبذة عني</span>
-
-            <h2>
-              <span data-ar="أهتم بالتفاصيل،"
-                    data-en="Thoughtful design.">
-                أهتم بالتفاصيل،
-              </span>
-
-              <span class="accent"
-                    data-ar=" وأحب بناء الأشياء."
-                    data-en=" Practical development.">
-                وأحب بناء الأشياء.
-              </span>
-            </h2>
-          </div>
-
-          <p class="about-text"
-             data-ar="أنا محمد عبيد، من مصر. بدأت العمل على مشروعات رقمية تجمع بين التصميم والتقنية، من مواقع المحتوى وقوالب بلوجر إلى تطبيقات الموبايل ولوحات التحكم. أؤمن أن المشروع الجيد مش مجرد شكل جميل، لكنه تجربة مفيدة وسهلة الاستخدام. أتعلم باستمرار وأطوّر مهاراتي من خلال بناء مشروعات حقيقية."
-             data-en="I'm Mohamed Ebeid, based in Egypt. My hands-on work spans content websites, Blogger templates, mobile applications and dashboards. I believe good digital products should be both visually considered and genuinely useful. I keep learning through building real projects.">
-            أنا محمد عبيد، من مصر. بدأت العمل على مشروعات رقمية تجمع بين التصميم والتقنية، من مواقع المحتوى وقوالب بلوجر إلى تطبيقات الموبايل ولوحات التحكم. أؤمن أن المشروع الجيد مش مجرد شكل جميل، لكنه تجربة مفيدة وسهلة الاستخدام. أتعلم باستمرار وأطوّر مهاراتي من خلال بناء مشروعات حقيقية.
-          </p>
-
-          <a href="https://github.com/mohamed-ebeid-dev"
-             class="btn btn-secondary"
-             target="_blank"
-             rel="noopener noreferrer">
-            <span data-ar="حسابي على GitHub"
-                  data-en="Explore my GitHub">
-              حسابي على GitHub
-            </span> ↗
-          </a>
-        </div>
-
-        <div class="skills-panel card">
-          <h3 data-ar="مجالات وأدوات أعمل بها"
-              data-en="Tools and technologies I use">
-            مجالات وأدوات أعمل بها
-          </h3>
-
-          <div class="skill-item">
-            <span>HTML / CSS</span><span>WEB</span>
-          </div>
-
-          <div class="skill-item">
-            <span>JavaScript</span><span>FRONTEND</span>
-          </div>
-
-          <div class="skill-item">
-            <span>Flutter / Dart</span><span>MOBILE</span>
-          </div>
-
-          <div class="skill-item">
-            <span>WordPress / Blogger</span><span>CMS</span>
-          </div>
-
-          <div class="skill-item">
-            <span>PHP / MySQL</span><span>BACKEND</span>
-          </div>
-
-          <div class="skill-item">
-            <span>UI & Responsive Design</span><span>DESIGN</span>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Process -->
-    <section class="section projects-section" id="process">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow"
-                data-ar="طريقة العمل"
-                data-en="WORKFLOW">طريقة العمل</span>
-
-          <h2 data-ar="من الفكرة إلى النتيجة"
-              data-en="From concept to delivery">
-            من الفكرة إلى النتيجة
-          </h2>
-
-          <p data-ar="كل مشروع يبدأ بفهم الهدف والمتطلبات قبل اختيار التصميم والتقنيات المناسبة."
-             data-en="Every project starts by understanding its goals and requirements before choosing the right design and technology.">
-            كل مشروع يبدأ بفهم الهدف والمتطلبات قبل اختيار التصميم والتقنيات المناسبة.
-          </p>
-        </div>
-
-        <div class="process-grid">
-
-          <article class="process-card card">
-            <span class="process-number">01</span>
-            <h3 data-ar="فهم المشروع"
-                data-en="Discover">فهم المشروع</h3>
-
-            <p data-ar="مناقشة الفكرة، والفئة المستهدفة، والوظائف المطلوبة، وتحديد نطاق التنفيذ."
-               data-en="Understanding the idea, audience, requirements and project scope.">
-              مناقشة الفكرة، والفئة المستهدفة، والوظائف المطلوبة، وتحديد نطاق التنفيذ.
-            </p>
-          </article>
-
-          <article class="process-card card">
-            <span class="process-number">02</span>
-            <h3 data-ar="التصميم والتطوير"
-                data-en="Design & Build">التصميم والتطوير</h3>
-
-            <p data-ar="إعداد الواجهة وتنفيذ الوظائف الأساسية مع مراجعة التجربة على الأجهزة المختلفة."
-               data-en="Designing interfaces, developing core features and checking different devices.">
-              إعداد الواجهة وتنفيذ الوظائف الأساسية مع مراجعة التجربة على الأجهزة المختلفة.
-            </p>
-          </article>
-
-          <article class="process-card card">
-            <span class="process-number">03</span>
-            <h3 data-ar="الاختبار والتسليم"
-                data-en="Test & Deliver">الاختبار والتسليم</h3>
-
-            <p data-ar="تجربة وظائف المشروع، ومعالجة المشكلات، ثم تجهيز النسخة المتفق عليها."
-               data-en="Testing functionality, resolving issues and preparing the agreed deliverables.">
-              تجربة وظائف المشروع، ومعالجة المشكلات، ثم تجهيز النسخة المتفق عليها.
-            </p>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section class="contact-section" id="contact">
-      <div class="container">
-        <div class="contact-box">
-
-          <span class="eyebrow"
-                data-ar="لنتحدث عن فكرتك"
-                data-en="LET'S CONNECT">
-            لنتحدث عن فكرتك
-          </span>
-
-          <h2>
-            <span data-ar="عندك مشروع في بالك؟"
-                  data-en="Have a project in mind?">
-              عندك مشروع في بالك؟
-            </span>
-
-            <span class="accent"
-                  data-ar=" خلينا نناقشه."
-                  data-en=" Let's discuss it.">
-              خلينا نناقشه.
-            </span>
-          </h2>
-
-          <p data-ar="سواء كنت محتاج موقعًا لنشاطك أو بتفكر في تطبيق جديد، البداية تكون بمناقشة فكرتك ومعرفة متطلباتها."
-             data-en="Whether you need a business website or are exploring a new app idea, it starts with discussing your goals and requirements.">
-            سواء كنت محتاج موقعًا لنشاطك أو بتفكر في تطبيق جديد، البداية تكون بمناقشة فكرتك ومعرفة متطلباتها.
-          </p>
-
-          <div class="contact-actions">
-            <a href="https://wa.me/201221642191"
-               class="btn btn-primary"
-               target="_blank"
-               rel="noopener noreferrer">
-              <span data-ar="تواصل عبر واتساب"
-                    data-en="Contact via WhatsApp">
-                تواصل عبر واتساب
-              </span> ↗
-            </a>
-
-            <a href="https://github.com/mohamed-ebeid-dev"
-               class="btn btn-secondary"
-               target="_blank"
-               rel="noopener noreferrer">
-              GitHub ↗
-            </a>
-          </div>
-
-          <!-- Project Request Form -->
-          <div class="request-panel">
-            <div class="request-heading">
-              <h3 data-ar="اطلب مشروعك"
-                  data-en="Request a Project">
-                اطلب مشروعك
-              </h3>
-
-              <p data-ar="املأ البيانات التالية، وهنجهز رسالة منظمة بتفاصيل طلبك لإرسالها على واتساب."
-                 data-en="Fill in the details below to prepare a structured WhatsApp message about your project.">
-                املأ البيانات التالية، وهنجهز رسالة منظمة بتفاصيل طلبك لإرسالها على واتساب.
-              </p>
-            </div>
-
-            <form id="projectRequestForm">
-              <div class="request-grid">
-
-                <div class="form-field">
-                  <label for="clientName"
-                         data-ar="اسمك بالكامل *"
-                         data-en="Full name *">
-                    اسمك بالكامل *
-                  </label>
-
-                  <input id="clientName"
-                         class="field-input"
-                         type="text"
-                         name="clientName"
-                         maxlength="100"
-                         autocomplete="name"
-                         required
-                         data-placeholder-ar="اكتب اسمك هنا"
-                         data-placeholder-en="Enter your name"
-                         placeholder="اكتب اسمك هنا">
-                </div>
-
-                <div class="form-field">
-                  <label for="projectType"
-                         data-ar="نوع المشروع *"
-                         data-en="Project type *">
-                    نوع المشروع *
-                  </label>
-
-                  <select id="projectType"
-                          class="field-input"
-                          name="projectType"
-                          required>
-
-                    <option value="" disabled selected
-                            data-ar="اختر نوع المشروع"
-                            data-en="Select a project type">
-                      اختر نوع المشروع
-                    </option>
-
-                    <option value="website"
-                            data-ar="موقع إلكتروني"
-                            data-en="Website">
-                      موقع إلكتروني
-                    </option>
-
-                    <option value="mobile"
-                            data-ar="تطبيق موبايل"
-                            data-en="Mobile application">
-                      تطبيق موبايل
-                    </option>
-
-                    <option value="blogger"
-                            data-ar="قالب بلوجر أو تطويره"
-                            data-en="Blogger template or customization">
-                      قالب بلوجر أو تطويره
-                    </option>
-
-                    <option value="dashboard"
-                            data-ar="لوحة تحكم أو نظام مخصص"
-                            data-en="Dashboard or custom system">
-                      لوحة تحكم أو نظام مخصص
-                    </option>
-
-                    <option value="other"
-                            data-ar="خدمة أخرى"
-                            data-en="Other service">
-                      خدمة أخرى
-                    </option>
-                  </select>
-                </div>
-
-                <div class="form-field full">
-                  <label for="projectDescription"
-                         data-ar="وصف المشروع *"
-                         data-en="Project description *">
-                    وصف المشروع *
-                  </label>
-
-                  <textarea id="projectDescription"
-                            class="field-input"
-                            name="projectDescription"
-                            maxlength="2000"
-                            minlength="10"
-                            required
-                            data-placeholder-ar="اشرح فكرة مشروعك والمميزات اللي محتاجها..."
-                            data-placeholder-en="Describe your project idea and the features you need..."
-                            placeholder="اشرح فكرة مشروعك والمميزات اللي محتاجها..."></textarea>
-                </div>
-
-                <div class="form-field">
-                  <label for="projectBudget">
-                    <span data-ar="الميزانية المتوقعة"
-                          data-en="Estimated budget">
-                      الميزانية المتوقعة
-                    </span>
-                    <span class="optional"
-                          data-ar=" (اختياري)"
-                          data-en=" (optional)">
-                      (اختياري)
-                    </span>
-                  </label>
-
-                  <input id="projectBudget"
-                         class="field-input"
-                         name="projectBudget"
-                         type="text"
-                         maxlength="80"
-                         data-placeholder-ar="مثال: 5000 جنيه أو لم أحدد"
-                         data-placeholder-en="e.g. 5000 EGP or undecided"
-                         placeholder="مثال: 5000 جنيه أو لم أحدد">
-                </div>
-
-                <div class="form-field">
-                  <label for="contactMethod"
-                         data-ar="طريقة التواصل المفضلة *"
-                         data-en="Preferred contact method *">
-                    طريقة التواصل المفضلة *
-                  </label>
-
-                  <select id="contactMethod"
-                          class="field-input"
-                          name="contactMethod"
-                          required>
-                    <option value="" disabled selected
-                            data-ar="اختر وسيلة التواصل"
-                            data-en="Choose a contact method">
-                      اختر وسيلة التواصل
-                    </option>
-
-                    <option value="whatsapp"
-                            data-ar="واتساب"
-                            data-en="WhatsApp">
-                      واتساب
-                    </option>
-
-                    <option value="call"
-                            data-ar="مكالمة هاتفية"
-                            data-en="Phone call">
-                      مكالمة هاتفية
-                    </option>
-
-                    <option value="email"
-                            data-ar="بريد إلكتروني"
-                            data-en="Email">
-                      بريد إلكتروني
-                    </option>
-                  </select>
-                </div>
-
-                <div class="form-field full">
-                  <label for="clientContact"
-                         data-ar="رقم التواصل أو البريد الإلكتروني *"
-                         data-en="Your contact number or email *">
-                    رقم التواصل أو البريد الإلكتروني *
-                  </label>
-
-                  <input id="clientContact"
-                         class="field-input"
-                         type="text"
-                         name="clientContact"
-                         maxlength="120"
-                         autocomplete="off"
-                         required
-                         data-placeholder-ar="اكتب الرقم أو البريد اللي نقدر نرد عليك من خلاله"
-                         data-placeholder-en="Enter the number or email we can reach you at"
-                         placeholder="اكتب الرقم أو البريد اللي نقدر نرد عليك من خلاله">
-                </div>
-
-              </div>
-
-              <button class="btn btn-primary request-submit"
-                      type="submit">
-                <span data-ar="إرسال طلب المشروع عبر واتساب"
-                      data-en="Send project request via WhatsApp">
-                  إرسال طلب المشروع عبر واتساب
-                </span>
-                <span>↗</span>
-              </button>
-
-              <p class="form-privacy"
-                 data-ar="سيتم فتح واتساب بالرسالة جاهزة. لن يتم إرسال أي شيء حتى تضغط زر الإرسال داخل واتساب بنفسك."
-                 data-en="WhatsApp will open with a prepared message. Nothing is sent until you press Send in WhatsApp.">
-                سيتم فتح واتساب بالرسالة جاهزة. لن يتم إرسال أي شيء حتى تضغط زر الإرسال داخل واتساب بنفسك.
-              </p>
-            </form>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container footer-inner">
-      <p>
-        © <span id="year">2026</span> Mohamed Ebeid.
-        <span data-ar="جميع الحقوق محفوظة."
-              data-en="All rights reserved.">
-          جميع الحقوق محفوظة.
-        </span>
+  </div>
+</header>
+
+<main>
+
+<!-- Hero -->
+<section class="hero" id="home">
+  <div class="container hero-grid">
+
+    <div class="hero-content">
+      <span class="availability" data-ar="متاح لمناقشة مشاريع جديدة" data-en="Open to discussing new projects">
+        متاح لمناقشة مشاريع جديدة
+      </span>
+
+      <h1>Mohamed <span class="accent">Ebeid.</span></h1>
+
+      <h2>
+        <span data-ar="أحوّل الأفكار إلى" data-en="Turning ideas into">أحوّل الأفكار إلى</span>
+        <span class="accent" data-ar="تجارب رقمية مميزة." data-en="meaningful digital experiences.">تجارب رقمية مميزة.</span>
+      </h2>
+
+      <p class="hero-description"
+         data-ar="مطوّر مواقع وتطبيقات من مصر، أهتم ببناء واجهات حديثة وحلول رقمية عملية تجمع بين التصميم الجيد وسهولة الاستخدام. أعمل على تطوير مهاراتي ومشاريعي باستمرار."
+         data-en="A web and mobile developer based in Egypt, focused on modern interfaces and practical digital solutions that combine thoughtful design with usability. Continuously learning through real projects.">
+        مطوّر مواقع وتطبيقات من مصر، أهتم ببناء واجهات حديثة وحلول رقمية عملية تجمع بين التصميم الجيد وسهولة الاستخدام. أعمل على تطوير مهاراتي ومشاريعي باستمرار.
       </p>
 
-      <a href="#home"
-         data-ar="العودة للأعلى ↑"
-         data-en="Back to top ↑">
-        العودة للأعلى ↑
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">
+          <span data-ar="استكشف أعمالي" data-en="Explore my work">استكشف أعمالي</span> ↗
+        </a>
+        <a href="#contact" class="btn btn-secondary" data-ar="تواصل معي" data-en="Get in touch">تواصل معي</a>
+      </div>
+
+      <div class="hero-tags">
+        <span>Flutter</span>
+        <span>Web Development</span>
+        <span>UI Design</span>
+        <span>Blogger Development</span>
+      </div>
+    </div>
+
+    <div class="portrait-area">
+      <div class="portrait-card">
+        <img src="https://github.com/mohamed-ebeid-dev.png?size=420" alt="Mohamed Ebeid personal brand">
+        <div class="portrait-caption">
+          <strong>Mohamed Ebeid</strong>
+          <span>Web & Mobile Developer</span>
+        </div>
+      </div>
+      <div class="float-chip">&lt; / &gt; Building Digital Experiences</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Introduction -->
+<div class="intro-strip">
+  <div class="container intro-inner">
+    <p>
+      <strong data-ar="من الفكرة إلى التنفيذ" data-en="From idea to execution">من الفكرة إلى التنفيذ</strong>
+      <span data-ar=" — حلول رقمية مصممة وفق احتياجات كل مشروع."
+            data-en=" — Digital solutions shaped around each project's needs.">
+        — حلول رقمية مصممة وفق احتياجات كل مشروع.
+      </span>
+    </p>
+    <a href="#about" data-ar="تعرف عليّ ←" data-en="Learn about me ↗">تعرف عليّ ←</a>
+  </div>
+</div>
+
+<!-- Services -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow" data-ar="ماذا أقدم؟" data-en="WHAT I DO">ماذا أقدم؟</span>
+      <h2>
+        <span data-ar="حلول تقنية" data-en="Digital solutions">حلول تقنية</span>
+        <span class="accent" data-ar="تناسب فكرتك" data-en="built around your idea">تناسب فكرتك</span>
+      </h2>
+      <p data-ar="أركز على تقديم أعمال واضحة وعملية، مع تحديد نطاق كل مشروع وفق متطلباته."
+         data-en="I focus on practical, well-defined work, with each project scoped to its requirements.">
+        أركز على تقديم أعمال واضحة وعملية، مع تحديد نطاق كل مشروع وفق متطلباته.
+      </p>
+    </div>
+
+    <div class="services-grid">
+      <article class="service card">
+        <div class="service-icon">◈</div>
+        <h3 data-ar="تطوير المواقع" data-en="Web Development">تطوير المواقع</h3>
+        <p data-ar="مواقع الشركات والمؤسسات وصفحات الهبوط، بواجهات حديثة ومتجاوبة وسهلة التصفح."
+           data-en="Business websites, landing pages and responsive web experiences.">
+          مواقع الشركات والمؤسسات وصفحات الهبوط، بواجهات حديثة ومتجاوبة وسهلة التصفح.
+        </p>
+      </article>
+
+      <article class="service card">
+        <div class="service-icon">▣</div>
+        <h3 data-ar="تطبيقات الموبايل" data-en="Mobile Applications">تطبيقات الموبايل</h3>
+        <p data-ar="تطوير تطبيقات Android باستخدام Flutter، حسب متطلبات ونطاق كل مشروع."
+           data-en="Flutter-based Android applications with a clearly defined project scope.">
+          تطوير تطبيقات Android باستخدام Flutter، حسب متطلبات ونطاق كل مشروع.
+        </p>
+      </article>
+
+      <article class="service card">
+        <div class="service-icon">✦</div>
+        <h3 data-ar="تطوير قوالب بلوجر" data-en="Blogger Templates">تطوير قوالب بلوجر</h3>
+        <p data-ar="تصميم وتخصيص قوالب بلوجر عربية متجاوبة، مع أقسام ومميزات حسب الحاجة."
+           data-en="Custom responsive Blogger themes, Arabic RTL layouts and tailored features.">
+          تصميم وتخصيص قوالب بلوجر عربية متجاوبة، مع أقسام ومميزات حسب الحاجة.
+        </p>
+      </article>
+
+      <article class="service card">
+        <div class="service-icon">⌘</div>
+        <h3 data-ar="الحلول البرمجية المخصصة" data-en="Custom Solutions">الحلول البرمجية المخصصة</h3>
+        <p data-ar="لوحات تحكم وأدوات لإدارة البيانات والطلبات وتبسيط الأعمال المتكررة."
+           data-en="Dashboards and tools for managing data, requests and repetitive workflows.">
+          لوحات تحكم وأدوات لإدارة البيانات والطلبات وتبسيط الأعمال المتكررة.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Projects -->
+<section class="section projects-section" id="projects">
+  <div class="container">
+
+    <div class="section-head">
+      <span class="eyebrow" data-ar="معرض الأعمال" data-en="SELECTED WORK">معرض الأعمال</span>
+      <h2>
+        <span data-ar="مشاريع اشتغلت" data-en="Projects I've">مشاريع اشتغلت</span>
+        <span class="accent" data-ar="عليها" data-en="worked on">عليها</span>
+      </h2>
+      <p data-ar="صور حقيقية من مشاريعي؛ بعض المشاريع منشور بالفعل وبعضها قيد التطوير والاختبار."
+         data-en="Real screenshots of my projects. Some are live, while others are being developed and tested.">
+        صور حقيقية من مشاريعي؛ بعض المشاريع منشور بالفعل وبعضها قيد التطوير والاختبار.
+      </p>
+    </div>
+
+    <div class="projects-grid">
+
+      <!-- Hanwazafak Website -->
+      <article class="project card">
+        <div class="project-media media-web">
+          <img class="desktop-shot" src="./hanwazafak-desktop-home.jpg" loading="lazy" alt="موقع هنوظفك على الكمبيوتر">
+          <img class="phone-overlay" src="./hanwazafak-mobile.jpg" loading="lazy" alt="موقع هنوظفك على الموبايل">
+          <span class="media-label">WEBSITE · DESKTOP / MOBILE</span>
+        </div>
+        <div class="project-info">
+          <span class="project-type">WEB PLATFORM • LIVE</span>
+          <h3>Hanwazafak Website</h3>
+          <p data-ar="منصة هنوظفك لنشر فرص العمل والتدريب، تضم بحثًا وتصنيفات وأقسام وظائف وأدوات للباحثين عن عمل."
+             data-en="An Arabic jobs and training platform with search, categories and useful tools for job seekers.">
+            منصة هنوظفك لنشر فرص العمل والتدريب، تضم بحثًا وتصنيفات وأقسام وظائف وأدوات للباحثين عن عمل.
+          </p>
+          <div class="tech-tags">
+            <span>Blogger</span>
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+          </div>
+          <div class="project-actions">
+            <button type="button" class="project-link" data-gallery="web">
+              <span data-ar="شاهد الصور" data-en="View screenshots">شاهد الصور</span> ↗
+            </button>
+            <a class="project-link" href="https://www.hanwazafak.com/" target="_blank" rel="noopener noreferrer">
+              <span data-ar="زيارة الموقع" data-en="Visit website">زيارة الموقع</span> ↗
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Hanwazafak Application -->
+      <article class="project card">
+        <div class="project-media media-app">
+          <img class="app-phone first" src="./hanwazafak-app-home.jpg" loading="lazy" alt="تطبيق هنوظفك بالوضع الفاتح">
+          <img class="app-phone second" src="./hanwazafak-app-dark.jpg" loading="lazy" alt="تطبيق هنوظفك بالوضع الداكن">
+          <span class="media-label">FLUTTER · ANDROID</span>
+        </div>
+        <div class="project-info">
+          <span class="project-type">ANDROID APPLICATION • IN DEVELOPMENT</span>
+          <h3>Hanwazafak App</h3>
+          <p data-ar="تطبيق Android لتصفح الوظائف وحفظها وعرض تفاصيلها، ويضم أدوات لتطوير المهارات مع لوحة تحكم لإدارة المحتوى."
+             data-en="An Android job-discovery app with job details, saved opportunities, development tools and a content management backend.">
+            تطبيق Android لتصفح الوظائف وحفظها وعرض تفاصيلها، ويضم أدوات لتطوير المهارات مع لوحة تحكم لإدارة المحتوى.
+          </p>
+          <div class="tech-tags">
+            <span>Flutter</span>
+            <span>Dart</span>
+            <span>PHP</span>
+            <span>MySQL</span>
+          </div>
+          <div class="project-actions">
+            <button type="button" class="project-link" data-gallery="app">
+              <span data-ar="استعرض شاشات التطبيق" data-en="Explore app screens">استعرض شاشات التطبيق</span> ↗
+            </button>
+            <span class="project-status" data-ar="قيد الاختبار" data-en="In testing">قيد الاختبار</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- OB Blogger Pro -->
+      <article class="project card">
+        <div class="project-media media-blogger">
+          <img class="desktop-shot" src="./ob-blogger-desktop.jpg" loading="lazy" alt="معاينة قالب OB Blogger على الكمبيوتر">
+          <img class="phone-overlay" src="./ob-blogger-mobile-dark.jpg" loading="lazy" alt="قالب OB Blogger على الهاتف بوضعه الداكن">
+          <span class="media-label">BLOGGER · RTL TEMPLATE</span>
+        </div>
+        <div class="project-info">
+          <span class="project-type">BLOGGER TEMPLATE • FOR SALE</span>
+          <h3>OB Blogger Pro</h3>
+          <p data-ar="قالب بلوجر عربي متجاوب من تطويري، يدعم العرض الفاتح والداكن، المقالات المميزة والتصنيفات والبحث وأشكال عرض متنوعة."
+             data-en="An Arabic RTL Blogger theme I developed with light/dark mode, featured posts, categories, search and flexible layouts.">
+            قالب بلوجر عربي متجاوب من تطويري، يدعم العرض الفاتح والداكن، المقالات المميزة والتصنيفات والبحث وأشكال عرض متنوعة.
+          </p>
+          <div class="tech-tags">
+            <span>Blogger XML</span>
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+            <span>RTL</span>
+          </div>
+          <div class="project-actions">
+            <button type="button" class="project-link" data-gallery="blogger">
+              <span data-ar="شاهد الصور" data-en="View screenshots">شاهد الصور</span> ↗
+            </button>
+            <a class="project-link" href="https://ob-blogger-pro.blogspot.com/" target="_blank" rel="noopener noreferrer">
+              <span data-ar="المعاينة المباشرة" data-en="Live demo">المعاينة المباشرة</span> ↗
+            </a>
+            <a class="project-link" href="https://ob-blogger.blogspot.com/" target="_blank" rel="noopener noreferrer">
+              <span data-ar="صفحة الشراء" data-en="Sales page">صفحة الشراء</span> ↗
+            </a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section class="section" id="about">
+  <div class="container about-grid">
+    <div>
+      <div class="section-head">
+        <span class="eyebrow" data-ar="نبذة عني" data-en="ABOUT ME">نبذة عني</span>
+        <h2>
+          <span data-ar="أهتم بالتفاصيل،" data-en="Thoughtful design.">أهتم بالتفاصيل،</span>
+          <span class="accent" data-ar="وأحب بناء الأشياء." data-en="Practical development.">وأحب بناء الأشياء.</span>
+        </h2>
+      </div>
+      <p class="about-text"
+         data-ar="أنا محمد عبيد، من مصر. بدأت العمل على مشروعات رقمية تجمع بين التصميم والتقنية، من مواقع المحتوى وقوالب بلوجر إلى تطبيقات الموبايل ولوحات التحكم. أؤمن أن المشروع الجيد ليس مجرد شكل جميل، بل تجربة مفيدة وسهلة الاستخدام. أتعلم باستمرار من خلال بناء مشروعات حقيقية."
+         data-en="I'm Mohamed Ebeid, based in Egypt. My hands-on work spans content websites, Blogger templates, mobile applications and dashboards. I believe a good digital product should be attractive and genuinely useful. I keep learning through real projects.">
+        أنا محمد عبيد، من مصر. بدأت العمل على مشروعات رقمية تجمع بين التصميم والتقنية، من مواقع المحتوى وقوالب بلوجر إلى تطبيقات الموبايل ولوحات التحكم. أؤمن أن المشروع الجيد ليس مجرد شكل جميل، بل تجربة مفيدة وسهلة الاستخدام. أتعلم باستمرار من خلال بناء مشروعات حقيقية.
+      </p>
+      <a href="https://github.com/mohamed-ebeid-dev" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+        <span data-ar="حسابي على GitHub" data-en="Explore my GitHub">حسابي على GitHub</span> ↗
       </a>
     </div>
-  </footer>
 
-  <script>
-    "use strict";
+    <div class="skills-panel card">
+      <h3 data-ar="مجالات وأدوات أعمل بها" data-en="Tools and technologies I use">مجالات وأدوات أعمل بها</h3>
+      <div class="skill-item"><span>HTML / CSS</span><span>WEB</span></div>
+      <div class="skill-item"><span>JavaScript</span><span>FRONTEND</span></div>
+      <div class="skill-item"><span>Flutter / Dart</span><span>MOBILE</span></div>
+      <div class="skill-item"><span>WordPress / Blogger</span><span>CMS</span></div>
+      <div class="skill-item"><span>PHP / MySQL</span><span>BACKEND</span></div>
+      <div class="skill-item"><span>UI & Responsive Design</span><span>DESIGN</span></div>
+    </div>
+  </div>
+</section>
 
-    const PUBLIC_WHATSAPP = "201221642191";
+<!-- Process -->
+<section class="section projects-section" id="process">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow" data-ar="طريقة العمل" data-en="WORKFLOW">طريقة العمل</span>
+      <h2 data-ar="من الفكرة إلى النتيجة" data-en="From concept to delivery">من الفكرة إلى النتيجة</h2>
+      <p data-ar="كل مشروع يبدأ بفهم الهدف والمتطلبات قبل اختيار التصميم والتقنيات المناسبة."
+         data-en="Every project starts by understanding its goals and requirements before choosing the right design and technology.">
+        كل مشروع يبدأ بفهم الهدف والمتطلبات قبل اختيار التصميم والتقنيات المناسبة.
+      </p>
+    </div>
+    <div class="process-grid">
+      <article class="process-card card">
+        <span class="process-number">01</span>
+        <h3 data-ar="فهم المشروع" data-en="Discover">فهم المشروع</h3>
+        <p data-ar="مناقشة الفكرة والفئة المستهدفة والوظائف المطلوبة وتحديد نطاق التنفيذ."
+           data-en="Understanding the idea, audience, requirements and project scope.">
+          مناقشة الفكرة والفئة المستهدفة والوظائف المطلوبة وتحديد نطاق التنفيذ.
+        </p>
+      </article>
+      <article class="process-card card">
+        <span class="process-number">02</span>
+        <h3 data-ar="التصميم والتطوير" data-en="Design & Build">التصميم والتطوير</h3>
+        <p data-ar="إعداد الواجهة وتنفيذ الوظائف الأساسية ومراجعة التجربة على الأجهزة المختلفة."
+           data-en="Designing interfaces, building core features and checking different devices.">
+          إعداد الواجهة وتنفيذ الوظائف الأساسية ومراجعة التجربة على الأجهزة المختلفة.
+        </p>
+      </article>
+      <article class="process-card card">
+        <span class="process-number">03</span>
+        <h3 data-ar="الاختبار والتسليم" data-en="Test & Deliver">الاختبار والتسليم</h3>
+        <p data-ar="اختبار الوظائف ومعالجة المشكلات ثم تجهيز النسخة المتفق عليها."
+           data-en="Testing functionality, resolving issues and preparing the agreed deliverables.">
+          اختبار الوظائف ومعالجة المشكلات ثم تجهيز النسخة المتفق عليها.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
 
-    const root = document.documentElement;
-    const langToggle = document.getElementById("langToggle");
-    const menuToggle = document.getElementById("menuToggle");
-    const mainNav = document.getElementById("mainNav");
-    const projectForm = document.getElementById("projectRequestForm");
+<!-- Contact -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="contact-box">
 
-    /* Language switching */
-    function setLanguage(lang) {
-      const selected = lang === "en" ? "en" : "ar";
+      <span class="eyebrow" data-ar="لنتحدث عن فكرتك" data-en="LET'S CONNECT">لنتحدث عن فكرتك</span>
+      <h2>
+        <span data-ar="عندك مشروع في بالك؟" data-en="Have a project in mind?">عندك مشروع في بالك؟</span>
+        <span class="accent" data-ar="خلينا نناقشه." data-en="Let's discuss it.">خلينا نناقشه.</span>
+      </h2>
+      <p data-ar="سواء محتاج موقعًا لنشاطك أو بتفكر في تطبيق جديد، البداية تكون بمناقشة فكرتك ومتطلباتها."
+         data-en="Whether you need a business website or have a mobile app idea, it starts with discussing your goals and requirements.">
+        سواء محتاج موقعًا لنشاطك أو بتفكر في تطبيق جديد، البداية تكون بمناقشة فكرتك ومتطلباتها.
+      </p>
 
-      root.lang = selected;
-      root.dir = selected === "ar" ? "rtl" : "ltr";
+      <div class="contact-actions">
+        <a href="https://wa.me/201221642191" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+          <span data-ar="تواصل عبر واتساب" data-en="Contact via WhatsApp">تواصل عبر واتساب</span> ↗
+        </a>
+        <a href="https://github.com/mohamed-ebeid-dev" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+          GitHub ↗
+        </a>
+      </div>
 
-      document.querySelectorAll("[data-ar][data-en]").forEach(el => {
-        el.textContent = el.getAttribute("data-" + selected);
-      });
+      <div class="request-panel">
+        <div class="request-heading">
+          <h3 data-ar="اطلب مشروعك" data-en="Request a Project">اطلب مشروعك</h3>
+          <p data-ar="اكتب تفاصيل طلبك، وهنجهز لك رسالة واتساب منظمة تقدر تبعتها بنفسك."
+             data-en="Enter your project details to prepare a WhatsApp message you can send yourself.">
+            اكتب تفاصيل طلبك، وهنجهز لك رسالة واتساب منظمة تقدر تبعتها بنفسك.
+          </p>
+        </div>
 
-      document.querySelectorAll(
-        "[data-placeholder-ar][data-placeholder-en]"
-      ).forEach(el => {
-        el.placeholder = el.getAttribute(
-          "data-placeholder-" + selected
-        );
-      });
+        <form id="projectRequestForm" novalidate>
+          <div class="request-grid">
 
-      langToggle.textContent =
-        selected === "ar" ? "English" : "العربية";
+            <div class="form-field">
+              <label for="clientName" data-ar="اسمك بالكامل *" data-en="Full name *">اسمك بالكامل *</label>
+              <input class="field-input" type="text" id="clientName" maxlength="100" autocomplete="name" required
+                     data-placeholder-ar="اكتب اسمك هنا" data-placeholder-en="Enter your name"
+                     placeholder="اكتب اسمك هنا" aria-describedby="clientNameError">
+              <small class="field-error" id="clientNameError" aria-live="polite"></small>
+            </div>
 
-      menuToggle.setAttribute(
-        "aria-label",
-        selected === "ar" ? "القائمة" : "Menu"
-      );
+            <div class="form-field">
+              <label for="projectType" data-ar="نوع المشروع *" data-en="Project type *">نوع المشروع *</label>
+              <select id="projectType" class="field-input" required aria-describedby="projectTypeError">
+                <option value="" disabled selected data-ar="اختر نوع المشروع" data-en="Select a project type">اختر نوع المشروع</option>
+                <option value="website" data-ar="موقع إلكتروني" data-en="Website">موقع إلكتروني</option>
+                <option value="mobile" data-ar="تطبيق موبايل" data-en="Mobile app">تطبيق موبايل</option>
+                <option value="blogger" data-ar="قالب بلوجر أو تطويره" data-en="Blogger theme or customization">قالب بلوجر أو تطويره</option>
+                <option value="dashboard" data-ar="لوحة تحكم أو نظام مخصص" data-en="Dashboard or custom system">لوحة تحكم أو نظام مخصص</option>
+                <option value="other" data-ar="خدمة أخرى" data-en="Other service">خدمة أخرى</option>
+              </select>
+              <small class="field-error" id="projectTypeError" aria-live="polite"></small>
+            </div>
 
-      try {
-        localStorage.setItem("meb-language", selected);
-      } catch (error) {
-        /* Storage may be unavailable. */
+            <div class="form-field full">
+              <label for="projectDescription" data-ar="وصف المشروع *" data-en="Project description *">وصف المشروع *</label>
+              <textarea id="projectDescription" class="field-input" maxlength="2000" minlength="10" required
+                        data-placeholder-ar="اشرح فكرة مشروعك والمميزات اللي محتاجها..."
+                        data-placeholder-en="Describe your project and desired features..."
+                        placeholder="اشرح فكرة مشروعك والمميزات اللي محتاجها..."
+                        aria-describedby="projectDescriptionError"></textarea>
+              <small class="field-error" id="projectDescriptionError" aria-live="polite"></small>
+            </div>
+
+            <div class="form-field">
+              <label for="projectBudget" data-ar="الميزانية المتوقعة (اختياري)" data-en="Estimated budget (optional)">
+                الميزانية المتوقعة (اختياري)
+              </label>
+              <input id="projectBudget" class="field-input" type="text" maxlength="80"
+                     data-placeholder-ar="مثال: 5000 جنيه أو لم أحدد"
+                     data-placeholder-en="e.g. 5000 EGP or undecided"
+                     placeholder="مثال: 5000 جنيه أو لم أحدد">
+            </div>
+
+            <div class="form-field">
+              <label for="contactMethod" data-ar="طريقة التواصل المفضلة *" data-en="Preferred contact method *">
+                طريقة التواصل المفضلة *
+              </label>
+              <select id="contactMethod" class="field-input" required aria-describedby="contactMethodError">
+                <option value="whatsapp" data-ar="واتساب" data-en="WhatsApp">واتساب</option>
+                <option value="email" data-ar="البريد الإلكتروني" data-en="Email">البريد الإلكتروني</option>
+              </select>
+              <small class="field-error" id="contactMethodError" aria-live="polite"></small>
+            </div>
+
+            <div class="form-field full">
+              <label for="clientContact" id="clientContactLabel" data-ar="رقم واتساب *" data-en="WhatsApp number *">
+                رقم واتساب *
+              </label>
+              <input id="clientContact" class="field-input" type="tel" inputmode="tel"
+                     maxlength="120" autocomplete="tel" required
+                     data-placeholder-ar="مثال: 012xxxxxxxx أو +20..."
+                     data-placeholder-en="Your WhatsApp number with country code"
+                     placeholder="مثال: 012xxxxxxxx أو +20..."
+                     aria-describedby="clientContactError">
+              <small class="field-error" id="clientContactError" aria-live="polite"></small>
+            </div>
+
+          </div>
+
+          <button class="btn btn-primary request-submit" type="submit">
+            <span data-ar="إرسال طلب المشروع عبر واتساب" data-en="Send project request via WhatsApp">
+              إرسال طلب المشروع عبر واتساب
+            </span> ↗
+          </button>
+
+          <p class="form-privacy"
+             data-ar="هيفتح واتساب بالرسالة الجاهزة، ولن تُرسل البيانات إلا بعد ما تضغط إرسال داخل واتساب بنفسك."
+             data-en="WhatsApp will open with a prepared message; nothing is sent until you tap Send there.">
+            هيفتح واتساب بالرسالة الجاهزة، ولن تُرسل البيانات إلا بعد ما تضغط إرسال داخل واتساب بنفسك.
+          </p>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <p>
+      © <span id="year">2026</span> Mohamed Ebeid.
+      <span data-ar="جميع الحقوق محفوظة." data-en="All rights reserved.">جميع الحقوق محفوظة.</span>
+    </p>
+    <a href="#home" data-ar="العودة للأعلى ↑" data-en="Back to top ↑">العودة للأعلى ↑</a>
+  </div>
+</footer>
+
+<!-- Gallery -->
+<div class="gallery-backdrop" id="galleryBackdrop" hidden>
+  <div class="gallery-dialog" role="dialog" aria-modal="true" aria-labelledby="galleryTitle" tabindex="-1">
+
+    <div class="gallery-header">
+      <h2 id="galleryTitle"></h2>
+      <button type="button" class="gallery-close" id="galleryClose" aria-label="Close gallery">×</button>
+    </div>
+
+    <div class="gallery-main">
+      <button type="button" class="gallery-arrow gallery-prev" id="galleryPrev" aria-label="Previous image">‹</button>
+      <img id="galleryImage" src="" alt="">
+      <button type="button" class="gallery-arrow gallery-next" id="galleryNext" aria-label="Next image">›</button>
+    </div>
+
+    <div class="gallery-caption" id="galleryCaption" aria-live="polite"></div>
+    <div class="gallery-thumbs" id="galleryThumbs"></div>
+
+  </div>
+</div>
+
+<script>
+'use strict';
+
+const WHATSAPP_NUMBER = '201221642191';
+
+const root = document.documentElement;
+const langToggle = document.getElementById('langToggle');
+const menuToggle = document.getElementById('menuToggle');
+const mainNav = document.getElementById('mainNav');
+
+const contactMethod = document.getElementById('contactMethod');
+const clientContact = document.getElementById('clientContact');
+const contactLabel = document.getElementById('clientContactLabel');
+const projectForm = document.getElementById('projectRequestForm');
+
+const bilingual = (ar,en) => root.lang === 'ar' ? ar : en;
+
+/* Validation */
+function clearError(id) {
+  const field = document.getElementById(id);
+  const error = document.getElementById(id + 'Error');
+
+  field.classList.remove('is-invalid');
+  field.removeAttribute('aria-invalid');
+
+  if (error) error.textContent = '';
+}
+
+function errorFor(id,message) {
+  const field = document.getElementById(id);
+  const error = document.getElementById(id + 'Error');
+
+  field.classList.add('is-invalid');
+  field.setAttribute('aria-invalid','true');
+
+  if (error) error.textContent = message;
+}
+
+/* Dynamic contact field */
+function updateContactField(reset=false) {
+  const isEmail = contactMethod.value === 'email';
+
+  contactLabel.textContent = isEmail
+    ? bilingual('البريد الإلكتروني *','Email address *')
+    : bilingual('رقم واتساب *','WhatsApp number *');
+
+  clientContact.type = isEmail ? 'email' : 'tel';
+  clientContact.inputMode = isEmail ? 'email' : 'tel';
+  clientContact.autocomplete = isEmail ? 'email' : 'tel';
+
+  clientContact.placeholder = isEmail
+    ? 'example@email.com'
+    : bilingual('مثال: 012xxxxxxxx أو +20...','WhatsApp number with country code');
+
+  if (reset) clientContact.value = '';
+
+  clearError('clientContact');
+}
+
+/* Language */
+function setLanguage(lang) {
+  const selected = lang === 'en' ? 'en' : 'ar';
+
+  root.lang = selected;
+  root.dir = selected === 'ar' ? 'rtl' : 'ltr';
+
+  document.querySelectorAll('[data-ar][data-en]').forEach(el => {
+    el.textContent = el.getAttribute('data-' + selected);
+  });
+
+  document.querySelectorAll('[data-placeholder-ar][data-placeholder-en]').forEach(el => {
+    el.placeholder = el.getAttribute('data-placeholder-' + selected);
+  });
+
+  langToggle.textContent = selected === 'ar' ? 'English' : 'العربية';
+
+  menuToggle.setAttribute(
+    'aria-label',
+    selected === 'ar' ? 'القائمة' : 'Menu'
+  );
+
+  updateContactField(false);
+
+  if (!galleryBackdrop.hidden) renderGallery();
+
+  try {
+    localStorage.setItem('meb-language',selected);
+  } catch(e) {}
+}
+
+let savedLang = 'ar';
+
+try {
+  savedLang = localStorage.getItem('meb-language') || 'ar';
+} catch(e) {}
+
+langToggle.addEventListener('click', () => {
+  setLanguage(root.lang === 'ar' ? 'en' : 'ar');
+});
+
+/* Mobile navigation */
+menuToggle.addEventListener('click', () => {
+  const open = mainNav.classList.toggle('open');
+
+  menuToggle.setAttribute('aria-expanded',String(open));
+  menuToggle.textContent = open ? '✕' : '☰';
+});
+
+mainNav.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    mainNav.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded','false');
+    menuToggle.textContent = '☰';
+  });
+});
+
+document.getElementById('year').textContent = new Date().getFullYear();
+
+contactMethod.addEventListener('change', () => updateContactField(true));
+
+projectForm.querySelectorAll('input,select,textarea').forEach(el => {
+  el.addEventListener('input', () => {
+    if (el.id && document.getElementById(el.id + 'Error')) {
+      clearError(el.id);
+    }
+  });
+});
+
+/* Project request */
+projectForm.addEventListener('submit', event => {
+  event.preventDefault();
+
+  let valid = true;
+  let firstBad = null;
+
+  const check = (id,message,condition) => {
+    if (!condition) {
+      errorFor(id,message);
+      valid = false;
+      if (!firstBad) firstBad = document.getElementById(id);
+    } else {
+      clearError(id);
+    }
+  };
+
+  const name = document.getElementById('clientName').value.trim();
+  const type = document.getElementById('projectType');
+  const description = document.getElementById('projectDescription').value.trim();
+  const budget = document.getElementById('projectBudget').value.trim();
+  const contact = clientContact.value.trim();
+
+  check(
+    'clientName',
+    bilingual('من فضلك اكتب اسمك.','Please enter your name.'),
+    name.length >= 2
+  );
+
+  check(
+    'projectType',
+    bilingual('اختار نوع المشروع.','Choose a project type.'),
+    !!type.value
+  );
+
+  check(
+    'projectDescription',
+    bilingual('اكتب وصفًا من 10 حروف على الأقل.','Write at least 10 characters.'),
+    description.length >= 10
+  );
+
+  if (contactMethod.value === 'email') {
+    check(
+      'clientContact',
+      bilingual('اكتب بريدًا إلكترونيًا صحيحًا.','Enter a valid email address.'),
+      /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact)
+    );
+  } else {
+    const digits = contact.replace(/[^0-9]/g,'');
+
+    check(
+      'clientContact',
+      bilingual(
+        'اكتب رقم واتساب صحيحًا (8 إلى 15 رقمًا).',
+        'Enter a valid WhatsApp number (8–15 digits).'
+      ),
+      /^[+\d\s().-]+$/.test(contact) &&
+      digits.length >= 8 &&
+      digits.length <= 15
+    );
+  }
+
+  if (!valid) {
+    firstBad.focus();
+    return;
+  }
+
+  const typeText = type.options[type.selectedIndex].textContent.trim();
+
+  const methodText =
+    contactMethod.options[contactMethod.selectedIndex].textContent.trim();
+
+  const message = root.lang === 'ar'
+    ? [
+        'مرحبًا محمد، أريد الاستفسار عن مشروع جديد.',
+        '',
+        '📋 تفاصيل المشروع',
+        '👤 الاسم: ' + name,
+        '💻 نوع المشروع: ' + typeText,
+        '📝 وصف المشروع:',
+        description,
+        '',
+        '💰 الميزانية: ' + (budget || 'لم أحدد'),
+        '📨 التواصل المفضل: ' + methodText,
+        '📩 بيانات التواصل: ' + contact,
+        '',
+        'مرسل من موقع أعمال Mohamed Ebeid.'
+      ].join('\n')
+    : [
+        'Hello Mohamed, I would like to discuss a new project.',
+        '',
+        '📋 Project details',
+        '👤 Name: ' + name,
+        '💻 Type: ' + typeText,
+        '📝 Description:',
+        description,
+        '',
+        '💰 Budget: ' + (budget || 'Not specified'),
+        '📨 Preferred contact: ' + methodText,
+        '📩 Contact details: ' + contact,
+        '',
+        'Sent from Mohamed Ebeid portfolio.'
+      ].join('\n');
+
+  const link = document.createElement('a');
+
+  link.href =
+    'https://wa.me/' +
+    WHATSAPP_NUMBER +
+    '?text=' +
+    encodeURIComponent(message);
+
+  link.target = '_blank';
+  link.rel = 'noopener noreferrer';
+
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+});
+
+/* Project screenshot galleries */
+const galleries = {
+  web: {
+    name:'Hanwazafak Website',
+    items:[
+      {
+        src:'./hanwazafak-desktop-home.jpg',
+        ar:'الرئيسية على الكمبيوتر',
+        en:'Desktop homepage'
+      },
+      {
+        src:'./hanwazafak-desktop-jobs.jpg',
+        ar:'قسم الوظائف المميزة على الكمبيوتر',
+        en:'Featured jobs on desktop'
+      },
+      {
+        src:'./hanwazafak-mobile.jpg',
+        ar:'الرئيسية على الموبايل',
+        en:'Mobile homepage'
       }
-    }
+    ]
+  },
 
-    let savedLanguage = "ar";
+  app: {
+    name:'Hanwazafak App',
+    items:[
+      {
+        src:'./hanwazafak-app-home.jpg',
+        ar:'الرئيسية — الوضع الفاتح',
+        en:'Homepage — light mode'
+      },
+      {
+        src:'./hanwazafak-app-dark.jpg',
+        ar:'الرئيسية — الوضع الداكن',
+        en:'Homepage — dark mode'
+      },
+      {
+        src:'./hanwazafak-app-jobs.jpg',
+        ar:'قائمة فرص العمل',
+        en:'Job listings'
+      },
+      {
+        src:'./hanwazafak-app-details.jpg',
+        ar:'صفحة تفاصيل الوظيفة',
+        en:'Job details'
+      },
+      {
+        src:'./hanwazafak-app-tools.jpg',
+        ar:'قسم تطوير المهارات',
+        en:'Skills development section'
+      },
+      {
+        src:'./hanwazafak-app-featured.jpg',
+        ar:'الفرص المميزة',
+        en:'Featured opportunities'
+      }
+    ]
+  },
 
-    try {
-      savedLanguage =
-        localStorage.getItem("meb-language") || "ar";
-    } catch (error) {
-      savedLanguage = "ar";
-    }
+  blogger: {
+    name:'OB Blogger Pro',
+    items:[
+      {
+        src:'./ob-blogger-desktop.jpg',
+        ar:'معاينة القالب على الكمبيوتر',
+        en:'Desktop template preview'
+      },
+      {
+        src:'./ob-blogger-mobile-light.jpg',
+        ar:'معاينة الهاتف — الوضع الفاتح',
+        en:'Mobile — light mode'
+      },
+      {
+        src:'./ob-blogger-mobile-dark.jpg',
+        ar:'معاينة الهاتف — الوضع الداكن',
+        en:'Mobile — dark mode'
+      }
+    ]
+  }
+};
 
-    setLanguage(savedLanguage);
+const galleryBackdrop = document.getElementById('galleryBackdrop');
+const galleryDialog = galleryBackdrop.querySelector('.gallery-dialog');
+const galleryImage = document.getElementById('galleryImage');
+const galleryCaption = document.getElementById('galleryCaption');
+const galleryThumbs = document.getElementById('galleryThumbs');
 
-    langToggle.addEventListener("click", () => {
-      setLanguage(root.lang === "ar" ? "en" : "ar");
+let galleryKey = 'web';
+let galleryIndex = 0;
+let returnFocus = null;
+
+function renderGallery() {
+  const data = galleries[galleryKey];
+  const item = data.items[galleryIndex];
+
+  document.getElementById('galleryTitle').textContent = data.name;
+
+  galleryImage.src = item.src;
+  galleryImage.alt = bilingual(item.ar,item.en);
+
+  galleryCaption.textContent =
+    bilingual(item.ar,item.en) +
+    ' — ' +
+    (galleryIndex + 1) +
+    ' / ' +
+    data.items.length;
+
+  galleryThumbs.textContent = '';
+
+  data.items.forEach((photo,index) => {
+    const btn = document.createElement('button');
+
+    btn.type = 'button';
+    btn.className =
+      'gallery-thumb' +
+      (index === galleryIndex ? ' active' : '');
+
+    btn.setAttribute('aria-label',bilingual(photo.ar,photo.en));
+    btn.setAttribute('aria-pressed',String(index === galleryIndex));
+
+    const im = document.createElement('img');
+    im.src = photo.src;
+    im.alt = '';
+    im.loading = 'lazy';
+
+    btn.appendChild(im);
+
+    btn.addEventListener('click', () => {
+      galleryIndex = index;
+      renderGallery();
     });
 
-    /* Mobile navigation */
-    menuToggle.addEventListener("click", () => {
-      const isOpen = mainNav.classList.toggle("open");
+    galleryThumbs.appendChild(btn);
+  });
+}
 
-      menuToggle.setAttribute(
-        "aria-expanded",
-        String(isOpen)
-      );
+function openGallery(key) {
+  if (!galleries[key]) return;
 
-      menuToggle.textContent = isOpen ? "✕" : "☰";
-    });
+  returnFocus = document.activeElement;
+  galleryKey = key;
+  galleryIndex = 0;
 
-    mainNav.querySelectorAll("a").forEach(link => {
-      link.addEventListener("click", () => {
-        mainNav.classList.remove("open");
-        menuToggle.setAttribute("aria-expanded", "false");
-        menuToggle.textContent = "☰";
-      });
-    });
+  galleryBackdrop.hidden = false;
+  document.body.classList.add('gallery-open');
 
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
+  renderGallery();
+  galleryDialog.focus();
+}
 
-    /* OB Blogger Pro inquiry */
-    document.getElementById("bloggerProjectLink")
-      .addEventListener("click", () => {
-        document.getElementById("projectType").value = "blogger";
-      });
+function closeGallery() {
+  galleryBackdrop.hidden = true;
+  document.body.classList.remove('gallery-open');
 
-    /* Project request to WhatsApp */
-    projectForm.addEventListener("submit", function(event) {
+  galleryImage.removeAttribute('src');
+
+  if (returnFocus && returnFocus.focus) {
+    returnFocus.focus();
+  }
+}
+
+function stepGallery(step) {
+  const count = galleries[galleryKey].items.length;
+  galleryIndex = (galleryIndex + step + count) % count;
+  renderGallery();
+}
+
+document.querySelectorAll('[data-gallery]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    openGallery(btn.dataset.gallery);
+  });
+});
+
+document.getElementById('galleryClose').addEventListener('click',closeGallery);
+document.getElementById('galleryPrev').addEventListener('click',() => stepGallery(-1));
+document.getElementById('galleryNext').addEventListener('click',() => stepGallery(1));
+
+galleryBackdrop.addEventListener('click',event => {
+  if (event.target === galleryBackdrop) closeGallery();
+});
+
+document.addEventListener('keydown',event => {
+  if (galleryBackdrop.hidden) return;
+
+  if (event.key === 'Escape') closeGallery();
+
+  if (event.key === 'ArrowLeft') {
+    stepGallery(root.dir === 'rtl' ? 1 : -1);
+  }
+
+  if (event.key === 'ArrowRight') {
+    stepGallery(root.dir === 'rtl' ? -1 : 1);
+  }
+
+  if (event.key === 'Tab') {
+    const focusables = Array.from(
+      galleryDialog.querySelectorAll('button:not([disabled])')
+    );
+
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+
+    if (event.shiftKey && document.activeElement === first) {
       event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  }
+});
 
-      if (!projectForm.reportValidity()) {
-        return;
-      }
-
-      const clientName =
-        document.getElementById("clientName").value.trim();
-
-      const projectTypeSelect =
-        document.getElementById("projectType");
-
-      const projectType =
-        projectTypeSelect.options[
-          projectTypeSelect.selectedIndex
-        ].textContent.trim();
-
-      const projectDescription =
-        document.getElementById("projectDescription")
-          .value.trim();
-
-      const budget =
-        document.getElementById("projectBudget").value.trim();
-
-      const contactMethodSelect =
-        document.getElementById("contactMethod");
-
-      const contactMethod =
-        contactMethodSelect.options[
-          contactMethodSelect.selectedIndex
-        ].textContent.trim();
-
-      const clientContact =
-        document.getElementById("clientContact").value.trim();
-
-      if (
-        !clientName ||
-        !projectTypeSelect.value ||
-        projectDescription.length < 10 ||
-        !contactMethodSelect.value ||
-        !clientContact
-      ) {
-        return;
-      }
-
-      /* Validate the contact detail for the chosen method */
-      if (contactMethodSelect.value === "email") {
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-        if (!emailPattern.test(clientContact)) {
-          const message = root.lang === "ar"
-            ? "من فضلك اكتب بريدًا إلكترونيًا صحيحًا."
-            : "Please enter a valid email address.";
-
-          alert(message);
-          document.getElementById("clientContact").focus();
-          return;
-        }
-      } else {
-        const phonePattern = /^\+?[0-9\s\-()]{8,25}$/;
-
-        if (!phonePattern.test(clientContact)) {
-          const message = root.lang === "ar"
-            ? "من فضلك اكتب رقم هاتف صحيحًا مع كود الدولة إذا كنت خارج مصر."
-            : "Please enter a valid phone number, including the country code if outside Egypt.";
-
-          alert(message);
-          document.getElementById("clientContact").focus();
-          return;
-        }
-      }
-
-      const budgetText = budget || (
-        root.lang === "ar" ? "لم يتم تحديدها" : "Not specified"
-      );
-
-      let message;
-
-      if (root.lang === "ar") {
-        message = [
-          "مرحبًا محمد،",
-          "أريد الاستفسار عن تنفيذ مشروع جديد.",
-          "",
-          "📋 تفاصيل طلب المشروع",
-          "",
-          "👤 الاسم: " + clientName,
-          "💻 نوع المشروع: " + projectType,
-          "",
-          "📝 وصف المشروع:",
-          projectDescription,
-          "",
-          "💰 الميزانية المتوقعة: " + budgetText,
-          "📞 طريقة التواصل: " + contactMethod,
-          "📩 بيانات التواصل: " + clientContact,
-          "",
-          "تم إرسال الطلب من موقع أعمال Mohamed Ebeid."
-        ].join("\n");
-      } else {
-        message = [
-          "Hello Mohamed,",
-          "I would like to discuss a new project.",
-          "",
-          "📋 Project Request",
-          "",
-          "👤 Name: " + clientName,
-          "💻 Project type: " + projectType,
-          "",
-          "📝 Description:",
-          projectDescription,
-          "",
-          "💰 Estimated budget: " + budgetText,
-          "📞 Preferred contact: " + contactMethod,
-          "📩 Contact details: " + clientContact,
-          "",
-          "Sent from the Mohamed Ebeid portfolio website."
-        ].join("\n");
-      }
-
-      const whatsappURL =
-        "https://wa.me/" +
-        PUBLIC_WHATSAPP +
-        "?text=" +
-        encodeURIComponent(message);
-
-      /* Open WhatsApp only after the user submits the form */
-      const link = document.createElement("a");
-      link.href = whatsappURL;
-      link.target = "_blank";
-      link.rel = "noopener noreferrer";
-
-      document.body.appendChild(link);
-      link.click();
-      link.remove();
-    });
-  </script>
+/* Initialize */
+setLanguage(savedLang);
+</script>
 
 </body>
 </html>
